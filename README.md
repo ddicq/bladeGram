@@ -1,3 +1,5 @@
+**WARNING! THIS IS NO LONGER THE OPEN-SOURCE CLIENT AND WILL NOT RECEIVE UPDATES!**
+
 <img src="https://i.imgur.com/5EmxevP.png" width="150" align="left"/>
 
 ## exteraGram

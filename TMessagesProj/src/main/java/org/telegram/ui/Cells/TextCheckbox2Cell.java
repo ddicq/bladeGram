@@ -28,7 +28,7 @@ import org.telegram.ui.Components.Switch;
 
 import java.util.ArrayList;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class TextCheckbox2Cell extends FrameLayout {
 
@@ -288,7 +288,7 @@ public class TextCheckbox2Cell extends FrameLayout {
             float animatedRad = rad * animationProgress;
             canvas.drawCircle(cx, cy, animatedRad, animationPaint);
         }
-        if (needDivider && !ExteraConfig.disableDividers) {
+        if (needDivider && !BladeConfig.disableDividers) {
             canvas.drawLine(LocaleController.isRTL ? 0 : AndroidUtilities.dp(64), getMeasuredHeight() - 1, getMeasuredWidth() - (LocaleController.isRTL ? AndroidUtilities.dp(64) : 0), getMeasuredHeight() - 1, Theme.dividerPaint);
         }
     }

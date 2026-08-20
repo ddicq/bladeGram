@@ -1,4 +1,4 @@
-package com.exteragram.messenger.camera;
+package com.bladegram.messenger.camera;
 
 import static android.hardware.camera2.CameraCharacteristics.LENS_INFO_AVAILABLE_FOCAL_LENGTHS;
 import static android.hardware.camera2.CameraMetadata.LENS_FACING_BACK;
@@ -17,7 +17,7 @@ import androidx.camera.video.Quality;
 import androidx.camera.video.QualitySelector;
 import androidx.core.content.ContextCompat;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import org.telegram.messenger.ApplicationLoader;
@@ -131,8 +131,8 @@ public class CameraXUtils {
                 .findFirst()
                 .ifPresent(height -> {
                     cameraResolution = height;
-                    if (ExteraConfig.cameraResolution == -1 || ExteraConfig.cameraResolution > max || ExteraConfig.cameraResolution < min) {
-                        ExteraConfig.editor.putInt("cameraResolution", ExteraConfig.cameraResolution = height);
+                    if (BladeConfig.cameraResolution == -1 || BladeConfig.cameraResolution > max || BladeConfig.cameraResolution < min) {
+                        BladeConfig.editor.putInt("cameraResolution", BladeConfig.cameraResolution = height);
                     }
                 });
     }
@@ -144,14 +144,14 @@ public class CameraXUtils {
     public static Size getPreviewBestSize() {
         int suggestedRes = getSuggestedResolution(true);
         return getAvailableVideoSizes().values().parallelStream()
-                .filter(size -> size.getHeight() <= ExteraConfig.cameraResolution && size.getHeight() <= suggestedRes)
+                .filter(size -> size.getHeight() <= BladeConfig.cameraResolution && size.getHeight() <= suggestedRes)
                 .max(Comparator.comparingInt(Size::getHeight))
                 .orElse(new Size(0, 0));
     }
 
     public static Quality getVideoQuality() {
         return getAvailableVideoSizes().entrySet().parallelStream()
-                .filter(entry -> entry.getValue().getHeight() == ExteraConfig.cameraResolution)
+                .filter(entry -> entry.getValue().getHeight() == BladeConfig.cameraResolution)
                 .map(Map.Entry::getKey)
                 .findFirst()
                 .orElse(Quality.HIGHEST);
@@ -168,7 +168,7 @@ public class CameraXUtils {
                 break;
             case SharedConfig.PERFORMANCE_CLASS_HIGH:
             default:
-                suggestedRes = ExteraConfig.useCameraXOptimizedMode && isPreview ? 1080 : 2160;
+                suggestedRes = BladeConfig.useCameraXOptimizedMode && isPreview ? 1080 : 2160;
                 break;
         }
         return suggestedRes;

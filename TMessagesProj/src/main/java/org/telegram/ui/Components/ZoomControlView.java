@@ -15,7 +15,7 @@ import android.view.View;
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.R;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class ZoomControlView extends View {
 

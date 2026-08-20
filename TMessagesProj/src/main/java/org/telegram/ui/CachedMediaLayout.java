@@ -27,7 +27,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.DialogObject;
@@ -122,7 +122,7 @@ public class CachedMediaLayout extends FrameLayout implements NestedSizeNotifier
         divider = new View(getContext()) {
             @Override
             protected void onDraw(Canvas canvas) {
-                if (!ExteraConfig.disableDividers)
+                if (!BladeConfig.disableDividers)
                     canvas.drawLine(0, getMeasuredHeight() - 1, getMeasuredWidth(), getMeasuredHeight() - 1, Theme.dividerPaint);
             }
         };
@@ -558,7 +558,7 @@ public class CachedMediaLayout extends FrameLayout implements NestedSizeNotifier
                         title = DialogObject.setDialogPhotoTitle(userCell.getImageView(), object);
                     }
                     userCell.dialogFileEntities = dialogFileEntities;
-                    userCell.getImageView().setRoundRadius(ExteraConfig.getAvatarCorners(object instanceof TLRPC.Chat && ((TLRPC.Chat) object).forum ? 28.5f : 38));
+                    userCell.getImageView().setRoundRadius(BladeConfig.getAvatarCorners(object instanceof TLRPC.Chat && ((TLRPC.Chat) object).forum ? 28.5f : 38));
                     userCell.setTextAndValue(title, AndroidUtilities.formatFileSize(dialogFileEntities.totalSize), position < getItemCount() - 1);
                     userCell.setChecked(cacheModel.isSelected(dialogFileEntities.dialogId), animated);
                     break;
@@ -1031,7 +1031,7 @@ public class CachedMediaLayout extends FrameLayout implements NestedSizeNotifier
         @Override
         protected void dispatchDraw(Canvas canvas) {
             super.dispatchDraw(canvas);
-            if (drawDivider && !ExteraConfig.disableDividers) {
+            if (drawDivider && !BladeConfig.disableDividers) {
                 if (LocaleController.isRTL) {
                     canvas.drawLine(0, getMeasuredHeight() - 1, getMeasuredWidth() - AndroidUtilities.dp(48), getMeasuredHeight() - 1, Theme.dividerPaint);
                 } else {

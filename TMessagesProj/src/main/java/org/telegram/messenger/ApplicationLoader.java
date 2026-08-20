@@ -32,9 +32,9 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.multidex.MultiDex;
 
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.camera.CameraXUtils;
-import com.exteragram.messenger.utils.CrashlyticsUtils;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.camera.CameraXUtils;
+import com.bladegram.messenger.utils.CrashlyticsUtils;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.crashlytics.FirebaseCrashlytics;
 
@@ -136,7 +136,7 @@ public class ApplicationLoader extends Application {
         } catch (Exception e) {
             FileLog.e(e);
         }
-        return new File("/data/data/com.exteragram.messenger/files");
+        return new File("/data/data/com.bladegram.messenger/files");
     }
 
     public static void postInitApplication() {
@@ -337,8 +337,8 @@ public class ApplicationLoader extends Application {
         AndroidUtilities.runOnUIThread(() -> {
             firebaseAnalytics = FirebaseAnalytics.getInstance(this);
             firebaseCrashlytics = FirebaseCrashlytics.getInstance();
-            firebaseAnalytics.setAnalyticsCollectionEnabled(ExteraConfig.useGoogleAnalytics);
-            firebaseCrashlytics.setCrashlyticsCollectionEnabled(ExteraConfig.useGoogleCrashlytics);
+            firebaseAnalytics.setAnalyticsCollectionEnabled(BladeConfig.useGoogleAnalytics);
+            firebaseCrashlytics.setCrashlyticsCollectionEnabled(BladeConfig.useGoogleCrashlytics);
             CrashlyticsUtils.logEvents(applicationContext);
         });
     }

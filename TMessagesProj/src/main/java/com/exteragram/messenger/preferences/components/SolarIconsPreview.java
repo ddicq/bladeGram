@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.preferences.components;
+package com.bladegram.messenger.preferences.components;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -28,7 +28,7 @@ import android.widget.FrameLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
@@ -131,7 +131,7 @@ public class SolarIconsPreview extends FrameLayout {
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
                         if (finalI == 5) {
-                            ExteraConfig.editor.putBoolean("useSolarIcons", ExteraConfig.useSolarIcons ^= true).apply();
+                            BladeConfig.editor.putBoolean("useSolarIcons", BladeConfig.useSolarIcons ^= true).apply();
                             reloadResources();
                         }
                         animator[finalI].setFloatValues(0f, 1f);
@@ -159,7 +159,7 @@ public class SolarIconsPreview extends FrameLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!ExteraConfig.disableDividers)
+        if (!BladeConfig.disableDividers)
             canvas.drawLine(LocaleController.isRTL ? 0 : AndroidUtilities.dp(21), getMeasuredHeight() - 1, getMeasuredWidth() - (LocaleController.isRTL ? AndroidUtilities.dp(21) : 0), getMeasuredHeight() - 1, Theme.dividerPaint);
     }
 

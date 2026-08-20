@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.utils;
+package com.bladegram.messenger.utils;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -20,7 +20,7 @@ import android.graphics.drawable.shapes.RoundRectShape;
 
 import androidx.core.content.ContextCompat;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ApplicationLoader;
@@ -36,7 +36,7 @@ public class CanvasUtils {
     }
 
     public static Drawable createFabBackground(boolean altColor) {
-        int r = AndroidUtilities.dp(ExteraConfig.squareFab ? 16 : 100);
+        int r = AndroidUtilities.dp(BladeConfig.squareFab ? 16 : 100);
         int c = Theme.getColor(altColor ? Theme.key_dialogFloatingButton : Theme.key_chats_actionBackground);
         int pc = Theme.getColor(altColor ? Theme.key_dialogFloatingButtonPressed : Theme.key_chats_actionPressedBackground);
         return Theme.createSimpleSelectorRoundRectDrawable(r, c, pc);

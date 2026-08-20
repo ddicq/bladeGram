@@ -54,7 +54,7 @@ import org.telegram.ui.Components.WaveDrawable;
 
 import java.util.ArrayList;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class GroupCallUserCell extends FrameLayout {
 
@@ -265,7 +265,7 @@ public class GroupCallUserCell extends FrameLayout {
         setClipChildren(false);
 
         avatarImageView = new BackupImageView(context);
-        avatarImageView.setRoundRadius(ExteraConfig.getAvatarCorners(46));
+        avatarImageView.setRoundRadius(BladeConfig.getAvatarCorners(46));
         addView(avatarImageView, LayoutHelper.createFrame(46, 46, (LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT) | Gravity.TOP, LocaleController.isRTL ? 0 : 11, 6, LocaleController.isRTL ? 11 : 0, 0));
 
         avatarProgressView = new RadialProgressView(context) {
@@ -904,7 +904,7 @@ public class GroupCallUserCell extends FrameLayout {
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
-        if (needDivider && !ExteraConfig.disableDividers) {
+        if (needDivider && !BladeConfig.disableDividers) {
             if (progressToAvatarPreview != 0) {
                 dividerPaint.setAlpha((int) ((1.0f - progressToAvatarPreview) * 255));
             } else {

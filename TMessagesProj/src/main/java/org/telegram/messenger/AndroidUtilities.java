@@ -116,8 +116,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.android.internal.telephony.ITelephony;
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.utils.FontUtils;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.utils.FontUtils;
 import com.google.android.exoplayer2.util.Consumer;
 import com.google.android.gms.auth.api.phone.SmsRetriever;
 import com.google.android.gms.auth.api.phone.SmsRetrieverClient;
@@ -1735,7 +1735,7 @@ public class AndroidUtilities {
             if (!typefaceCache.containsKey(assetPath)) {
                 Typeface t = null;
                 try {
-                    if (ExteraConfig.useSystemFonts) {
+                    if (BladeConfig.useSystemFonts) {
                         switch (assetPath) {
                             case TYPEFACE_ROBOTO_MONO:
                                 t = Typeface.MONOSPACE;
@@ -1825,7 +1825,7 @@ public class AndroidUtilities {
     }
 
     public static int getShadowHeight() {
-        if (ExteraConfig.disableDividers) {
+        if (BladeConfig.disableDividers) {
             return 0;
         } else if (density >= 4.0f) {
             return 3;
@@ -2277,8 +2277,8 @@ public class AndroidUtilities {
     }
 
     public static boolean isTabletInternal() {
-        if (ExteraConfig.tabletMode == 1) isTablet = true;
-        else if (ExteraConfig.tabletMode == 2) isTablet = false;
+        if (BladeConfig.tabletMode == 1) isTablet = true;
+        else if (BladeConfig.tabletMode == 2) isTablet = false;
         if (isTablet == null) {
             isTablet = isTabletForce();
         }
@@ -2877,7 +2877,7 @@ public class AndroidUtilities {
         }
         File storageDir = null;
         if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
-            storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "exteraGram");
+            storageDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "bladeGram");
             if (!storageDir.mkdirs()) {
                 if (!storageDir.exists()) {
                     if (BuildVars.LOGS_ENABLED) {

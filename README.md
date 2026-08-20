@@ -1,11 +1,11 @@
 <img src="https://i.imgur.com/5EmxevP.png" width="150" align="left"/>
 
-## exteraGram
-*[Licensed under the GNU General Public License v2.0](https://github.com/exteraSquad/exteraGram/blob/default/LICENSE)*
+## bladeGram
+*[Licensed under the GNU General Public License v2.0](https://github.com/exteraSquad/bladeGram/blob/default/LICENSE)*
 
 Experimental **third-party** Telegram client based on [official sources](https://github.com/DrKLO/Telegram).
 
-[![Channel](https://img.shields.io/badge/Channel-Telegram-blue.svg)](https://t.me/exteraGram)
+[![Channel](https://img.shields.io/badge/Channel-Telegram-blue.svg)](https://t.me/bladeGram)
 [![Chat](https://img.shields.io/badge/Chat-Telegram-blue.svg)](https://t.me/exteraChat)
 [![Downloads](https://img.shields.io/badge/Download%20at%20-%20Telegram-blue.svg)](https://t.me/exteraReleases)
 
@@ -26,18 +26,18 @@ SIGNING_KEY_STORE_PASSWORD = Z9yXDEFHJ6KRqn7oP
 ```
 
 ## Compilation Guide
-1. Clone exteraGram's source code using `git clone https://github.com/exteraSquad/exteraGram.git`
-2. Fill out values in `API_KEYS` like [here](https://github.com/exteraSquad/exteraGram#importing-api-hash-and-keys)
+1. Clone bladeGram's source code using `git clone https://github.com/exteraSquad/bladeGram.git`
+2. Fill out values in `API_KEYS` like [here](https://github.com/exteraSquad/bladeGram#importing-api-hash-and-keys)
 3. Open the project in Android Studio. It should be opened, **not imported**
-4. You are ready to compile `exteraGram`
+4. You are ready to compile `bladeGram`
 
-- **exteraGram** can be built with **Android Studio** or from the command line with **Gradle**:
+- **bladeGram** can be built with **Android Studio** or from the command line with **Gradle**:
 ```
 ./gradlew assembleAfatRelease
 ```
 
-## exteraGram Localization
-Since **exteraGram** is a fork of **Telegram for Android** and most of the localizations follow the translations of **Telegram for Android**, check it out [here](https://translations.telegram.org/en/android/). As for specialized strings for **exteraGram**, we use **Crowdin** to translate **exteraGram**. Join the project on [Crowdin](https://crowdin.com/project/exteralocales)!
+## bladeGram Localization
+Since **bladeGram** is a fork of **Telegram for Android** and most of the localizations follow the translations of **Telegram for Android**, check it out [here](https://translations.telegram.org/en/android/). As for specialized strings for **bladeGram**, we use **Crowdin** to translate **bladeGram**. Join the project on [Crowdin](https://crowdin.com/project/exteralocales)!
 
  ## Thanks to:
 - [Catogram](https://github.com/Catogram/Catogram)

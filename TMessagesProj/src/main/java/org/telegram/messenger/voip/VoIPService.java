@@ -86,7 +86,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.json.JSONObject;
 import org.telegram.messenger.AccountInstance;

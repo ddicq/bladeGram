@@ -136,8 +136,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.utils.CanvasUtils;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.utils.CanvasUtils;
 
 public class EmojiView extends FrameLayout implements NotificationCenter.NotificationCenterDelegate {
 
@@ -815,7 +815,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
             });
             box.addView(clear, LayoutHelper.createFrame(36, 36, Gravity.RIGHT | Gravity.TOP));
 
-            if ((type != 1 || allowAnimatedEmoji && UserConfig.getInstance(UserConfig.selectedAccount).isPremium()) && !ExteraConfig.hideCategories) {
+            if ((type != 1 || allowAnimatedEmoji && UserConfig.getInstance(UserConfig.selectedAccount).isPremium()) && !BladeConfig.hideCategories) {
                 categoriesListView = new StickerCategoriesListView(context, null, StickerCategoriesListView.CategoriesType.DEFAULT, resourcesProvider) {
                     @Override
                     public void selectCategory(int categoryIndex) {
@@ -2474,7 +2474,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
                 @SuppressLint("NewApi")
                 @Override
                 public void getOutline(View view, Outline outline) {
-                    if (ExteraConfig.squareFab) {
+                    if (BladeConfig.squareFab) {
                         outline.setRoundRect(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight(), AndroidUtilities.dp(16));
                     } else {
                         outline.setOval(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
@@ -3678,7 +3678,7 @@ public class EmojiView extends FrameLayout implements NotificationCenter.Notific
         private Paint dividerPaint;
         @Override
         protected void onDraw(Canvas canvas) {
-            if (divider && !ExteraConfig.disableDividers) {
+            if (divider && !BladeConfig.disableDividers) {
                 if (dividerPaint == null) {
                     dividerPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
                     dividerPaint.setStrokeWidth(1);

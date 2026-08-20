@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.preferences.components;
+package com.bladegram.messenger.preferences.components;
 
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
@@ -27,7 +27,7 @@ import android.widget.LinearLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
@@ -55,7 +55,7 @@ public class FabShapeCell extends LinearLayout {
             outlinePaint.setColor(ColorUtils.setAlphaComponent(Theme.getColor(Theme.key_switchTrack), 0x3F));
             outlinePaint.setStrokeWidth(Math.max(2, AndroidUtilities.dp(1f)));
 
-            setSelected(square && ExteraConfig.squareFab || !square && !ExteraConfig.squareFab, false);
+            setSelected(square && BladeConfig.squareFab || !square && !BladeConfig.squareFab, false);
         }
 
         @SuppressLint("DrawAllocation")
@@ -80,7 +80,7 @@ public class FabShapeCell extends LinearLayout {
             for (int a = 0; a < 2; a++) {
                 cy += AndroidUtilities.dp(a == 0 ? 0 : 32);
                 Theme.dialogs_onlineCirclePaint.setColor(Color.argb(90, r, g, b));
-                canvas.drawRoundRect(cx - rad, cy - rad, cx + rad, cy + rad, ExteraConfig.getAvatarCorners(rad * 2, true), ExteraConfig.getAvatarCorners(rad * 2, true), Theme.dialogs_onlineCirclePaint);
+                canvas.drawRoundRect(cx - rad, cy - rad, cx + rad, cy + rad, BladeConfig.getAvatarCorners(rad * 2, true), BladeConfig.getAvatarCorners(rad * 2, true), Theme.dialogs_onlineCirclePaint);
 
                 for (int i = 0; i < 2; i++) {
                     Theme.dialogs_onlineCirclePaint.setColor(Color.argb(i == 0 ? 204 : 90, r, g, b));
@@ -139,7 +139,7 @@ public class FabShapeCell extends LinearLayout {
                 for (int b = 0; b < 2; b++) {
                     fabShape[b].setSelected(v == fabShape[b], true);
                 }
-                ExteraConfig.editor.putBoolean("squareFab", ExteraConfig.squareFab = square).apply();
+                BladeConfig.editor.putBoolean("squareFab", BladeConfig.squareFab = square).apply();
                 rebuildFragments();
             });
         }
@@ -160,7 +160,7 @@ public class FabShapeCell extends LinearLayout {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (!ExteraConfig.disableDividers)
+        if (!BladeConfig.disableDividers)
             canvas.drawLine(LocaleController.isRTL ? 0 : AndroidUtilities.dp(21), getMeasuredHeight() - 1, getMeasuredWidth() - (LocaleController.isRTL ? AndroidUtilities.dp(21) : 0), getMeasuredHeight() - 1, Theme.dividerPaint);
     }
 

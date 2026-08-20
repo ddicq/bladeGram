@@ -77,7 +77,7 @@ import org.telegram.ui.Components.RLottieImageView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class ActionBarMenuItem extends FrameLayout {
 
@@ -2058,12 +2058,12 @@ public class ActionBarMenuItem extends FrameLayout {
                         Theme.setCombinedDrawableColor(combinedDrawable, getThemedColor(Theme.key_avatar_actionBarIconBlue), true);
                         avatarImageView.setImageDrawable(combinedDrawable);
                     } else {
-                        avatarImageView.getImageReceiver().setRoundRadius(ExteraConfig.getAvatarCorners(32));
+                        avatarImageView.getImageReceiver().setRoundRadius(BladeConfig.getAvatarCorners(32));
                         avatarImageView.getImageReceiver().setForUserOrChat(user, thumbDrawable);
                     }
                 } else if (data.chat instanceof TLRPC.Chat) {
                     TLRPC.Chat chat = (TLRPC.Chat) data.chat;
-                    avatarImageView.getImageReceiver().setRoundRadius(ExteraConfig.getAvatarCorners(32));
+                    avatarImageView.getImageReceiver().setRoundRadius(BladeConfig.getAvatarCorners(32));
                     avatarImageView.getImageReceiver().setForUserOrChat(chat, thumbDrawable);
                 }
             } else if (data.filterType == FiltersView.FILTER_TYPE_ARCHIVE) {

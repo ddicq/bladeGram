@@ -1,6 +1,6 @@
     <!--
 
-     This is the source code of exteraGram for Android.
+     This is the source code of bladeGram for Android.
 
      We do not and cannot prevent the use of our code,
      but be respectful and credit the original author.
@@ -9,10 +9,10 @@
 
      -->
 <resources>
-    <string name="Preferences">параметри exteraGram</string>
+    <string name="Preferences">параметри bladeGram</string>
     <!--  Main Menu  -->
     <string name="Links">Посилання</string>
-    <string name="AboutExteraDescription">Експериментальний клієнт Telegram заснований на офіційних джерелах!</string>
+    <string name="AboutBladeDescription">Експериментальний клієнт bladeGram заснований на офіційних джерелах!</string>
     <string name="Channel">Канал</string>
     <string name="Crowdin">Перекладати</string>
     <string name="SourceCode">Вихідний код</string>
@@ -39,7 +39,7 @@
     <string name="TabStylePills">Пілюля</string>
     <string name="TabCounter">Счётчик уведомлений</string>
     <string name="HideAllChats">Сховати теку \"%1$s\"</string>
-    <string name="FoldersInfo">Іконки синхронізовані з Telegram.</string>
+    <string name="FoldersInfo">Іконки синхронізовані з bladeGram.</string>
     <string name="IconPack">Іконки</string>
     <string name="SolarIcons">Використовувати іконки \"Solar\"</string>
     <string name="ForceBlur">Примусове розмиття</string>
@@ -63,7 +63,7 @@
     <!--  General  -->
     <string name="CameraType">Тип камери</string>
     <string name="CameraTypeSystem">Система</string>
-    <string name="DefaultCameraInfo">Використовувати камеру Telegram.</string>
+    <string name="DefaultCameraInfo">Використовувати камеру bladeGram.</string>
     <string name="CameraXInfo">
 CameraX підтримується тільки на
 <![CDATA[ <a href="https://developer.android.com/training/camerax/devices"> обраних пристроях</a> ]]>
@@ -83,7 +83,7 @@ CameraX підтримується тільки на
     <string name="Profile">Профіль</string>
     <string name="HidePhoneNumber">Приховати номер телефону</string>
     <string name="ShowIdAndDc">Показати ID та DC</string>
-    <string name="ShowIdAndDcInfo">API Telegram показує ID якими вони є, в той час, як API ботів додає знак мінуса для груп і -100 для супергруп, бродкаст груп і каналів.</string>
+    <string name="ShowIdAndDcInfo">API bladeGram показує ID якими вони є, в той час, як API ботів додає знак мінуса для груп і -100 для супергруп, бродкаст груп і каналів.</string>
     <string name="ArchiveOnPull">Відкрити архів при витягуванні</string>
     <string name="DisableUnarchiveSwipe">Вимкнути свайп «Розархівувати»</string>
     <string name="DisableUnarchiveSwipeInfo">Проведення вліво не призведе до видалення чатів з архіву.</string>
@@ -133,7 +133,7 @@ CameraX підтримується тільки на
     <string name="RememberLastUsedCamera">Запам\'ятати останню використану камеру</string>
     <string name="RememberLastUsedCameraInfo">При записі відеоповідомлень, буде вибрано останню використану камеру.</string>
     <string name="PauseOnMinimize">Автопауза</string>
-    <string name="PauseOnMinimizeInfo">Призупиняє відтворення відео, коли пристрій заблоковано або згорнуто exteraGram.</string>
+    <string name="PauseOnMinimizeInfo">Призупиняє відтворення відео, коли пристрій заблоковано або згорнуто bladeGram.</string>
     <string name="DisablePlayback">Вимкнути відтворення</string>
     <string name="DisablePlaybackInfo">Вимикає відтворення при натисканні кнопки гучності.</string>
     <!--  Boost  -->
@@ -172,7 +172,7 @@ CameraX підтримується тільки на
     <string name="Datacenter">Дата-центр</string>
     <!--  Other  -->
     <string name="RestartRequired">Перезапустіть програму, щоб зміни вступили в силу.</string>
-    <string name="ResetSettingsBulletin">**exteraGram** Налаштування були скинуті.</string>
+    <string name="ResetSettingsBulletin">**bladeGram** Налаштування були скинуті.</string>
     <string name="UserNotFound">Користувача з таким **ID** не знайдено.</string>
     <string name="PhotoCopied">Фото скопійовано до буфера обміну.</string>
     <string name="MutualContact">взаємний контакт</string>

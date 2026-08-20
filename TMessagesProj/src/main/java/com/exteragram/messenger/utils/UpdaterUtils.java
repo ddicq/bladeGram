@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.utils;
+package com.bladegram.messenger.utils;
 
 import android.annotation.SuppressLint;
 import android.app.DownloadManager;
@@ -25,8 +25,8 @@ import android.text.Spanned;
 
 import androidx.core.content.FileProvider;
 
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.preferences.updater.UpdaterBottomSheet;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.preferences.updater.UpdaterBottomSheet;
 
 import org.json.JSONObject;
 import org.telegram.messenger.AndroidUtilities;
@@ -55,7 +55,7 @@ public class UpdaterUtils {
 
     public static final DispatchQueue otaQueue = new DispatchQueue("otaQueue");
 
-    private static String uri = "https://api.github.com/repos/exteraSquad/exteraGram/releases/latest";
+    private static String uri = "https://api.github.com/repos/exteraSquad/bladeGram/releases/latest";
     private static String downloadURL = null;
     public static String version, changelog, size, uploadDate;
     public static File otaPath, versionPath, apkFile;
@@ -95,15 +95,15 @@ public class UpdaterUtils {
 
     public static void checkUpdates(BaseFragment fragment, boolean manual, OnUpdateNotFound onUpdateNotFound, OnUpdateFound onUpdateFound) {
 
-        if (BuildVars.PM_BUILD || checkingForUpdates || id != 1L || (System.currentTimeMillis() - ExteraConfig.updateScheduleTimestamp < updateCheckInterval && !manual))
+        if (BuildVars.PM_BUILD || checkingForUpdates || id != 1L || (System.currentTimeMillis() - BladeConfig.updateScheduleTimestamp < updateCheckInterval && !manual))
             return;
 
         checkingForUpdates = true;
         otaQueue.postRunnable(() -> {
-            ExteraConfig.editor.putLong("lastUpdateCheckTime", ExteraConfig.lastUpdateCheckTime = System.currentTimeMillis()).apply();
+            BladeConfig.editor.putLong("lastUpdateCheckTime", BladeConfig.lastUpdateCheckTime = System.currentTimeMillis()).apply();
             try {
                 if (BuildVars.isBetaApp())
-                    uri = uri.replace("/exteraGram/", "/exteraGram-Beta/");
+                    uri = uri.replace("/bladeGram/", "/bladeGram-Beta/");
                 var connection = (HttpURLConnection) new URI(uri).toURL().openConnection();
                 connection.setRequestMethod("GET");
                 connection.setRequestProperty("User-Agent", TranslatorUtils.formatUserAgent());

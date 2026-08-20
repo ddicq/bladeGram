@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -10,13 +10,13 @@
 
 -->
 <resources>
-    <string name="Preferences">exteraGram 设置</string>
+    <string name="Preferences">bladeGram 设置</string>
     <!-- Main Menu -->
     <string name="Links">链接</string>
-    <string name="AboutExteraDescription">基于官方Telegram源码制作的第三方客户端</string>
+    <string name="AboutBladeDescription">基于官方bladeGram源码制作的第三方客户端</string>
     <string name="Channel">通知频道</string>
     <string name="Crowdin">翻译</string>
-    <string name="SourceCode">exteraGram 源码</string>
+    <string name="SourceCode">bladeGram 源码</string>
     <string name="Categories">设置分类</string>
     <!-- Appearance -->
     <string name="AvatarCorners">头像圆角</string>
@@ -40,7 +40,7 @@
     <string name="TabStylePills">药丸</string>
     <string name="TabCounter">选项卡计数</string>
     <string name="HideAllChats">隐藏 %1$s 选项卡</string>
-    <string name="FoldersInfo">图标与 Telegram 官方同步。</string>
+    <string name="FoldersInfo">图标与 bladeGram 官方同步。</string>
     <string name="IconPack">图标</string>
     <string name="SolarIcons">使用“Solar”风格图标</string>
     <string name="ForceBlur">强制模糊</string>
@@ -64,7 +64,7 @@
     <!-- General -->
     <string name="CameraType">相机类型</string>
     <string name="CameraTypeSystem">系统</string>
-    <string name="DefaultCameraInfo">使用Telegram的官方内置相机</string>
+    <string name="DefaultCameraInfo">使用bladeGram的官方内置相机</string>
     <string name="CameraXInfo">CameraX仅支持<![CDATA[<a href="https://developer.android.com/training/camerax/devices">该列表</a>]]>中的设备，拍摄质量与兼容性取决于硬件性能。</string>
     <string name="SystemCameraInfo">直接使用系统相机(不适用于视频消息)</string>
     <string name="PerformanceMode">性能模式</string>
@@ -80,7 +80,7 @@
     <string name="Profile">个人资料</string>
     <string name="HidePhoneNumber">隐藏手机号码</string>
     <string name="ShowIdAndDc">显示用户ID和DC(数据中心)</string>
-    <string name="ShowIdAndDcInfo">按照Telegram APl的返回表示ID，而Bot API为群组的ID之前添加负号，为超级群组、广播群组和频道的ID之前添加-100。</string>
+    <string name="ShowIdAndDcInfo">按照bladeGram APl的返回表示ID，而Bot API为群组的ID之前添加负号，为超级群组、广播群组和频道的ID之前添加-100。</string>
     <string name="ArchiveOnPull">下拉打开已归档对话</string>
     <string name="DisableUnarchiveSwipe">禁用\"取消存档\"滑动动作</string>
     <string name="DisableUnarchiveSwipeInfo">向左滑动不会删除归档中的聊天。</string>
@@ -169,7 +169,7 @@
     <string name="Datacenter">数据中心</string>
     <!-- Other -->
     <string name="RestartRequired">重启应用以保证设置生效.</string>
-    <string name="ResetSettingsBulletin">**exteraGram** 设置已被重置。</string>
+    <string name="ResetSettingsBulletin">**bladeGram** 设置已被重置。</string>
     <string name="UserNotFound">未找到 **ID** 的用户。</string>
     <string name="PhotoCopied">图片已复制到剪贴板</string>
     <string name="MutualContact">双向联系人</string>

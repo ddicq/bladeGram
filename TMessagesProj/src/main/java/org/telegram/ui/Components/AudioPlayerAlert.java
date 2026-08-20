@@ -58,8 +58,8 @@ import androidx.dynamicanimation.animation.SpringForce;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.utils.ChatUtils;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.utils.ChatUtils;
 import com.google.android.exoplayer2.C;
 
 import org.telegram.messenger.AndroidUtilities;
@@ -1086,10 +1086,10 @@ public class AudioPlayerAlert extends BottomSheet implements NotificationCenter.
             args.putBoolean("canSelectTopics", true);
             DialogsActivity activity = new DialogsActivity(args);
             activity.setDelegate((fragment, dids, message, param, topicsFragment) -> {
-                ExteraConfig.setChannelToSave(dids.get(0).dialogId);
+                BladeConfig.setChannelToSave(dids.get(0).dialogId);
                 AudioPlayerAlert alert = new AudioPlayerAlert(parentActivity, resourcesProvider);
                 parentFragment.showDialog(alert);
-                AndroidUtilities.runOnUIThread(() -> BulletinFactory.of((FrameLayout) alert.getContainerView(), resourcesProvider).createSimpleBulletin(R.raw.ic_save_to_music, LocaleController.formatString("ChannelToSaveChanged", R.string.ChannelToSaveChanged, ChatUtils.getName(ExteraConfig.channelToSave))).show(), 450);
+                AndroidUtilities.runOnUIThread(() -> BulletinFactory.of((FrameLayout) alert.getContainerView(), resourcesProvider).createSimpleBulletin(R.raw.ic_save_to_music, LocaleController.formatString("ChannelToSaveChanged", R.string.ChannelToSaveChanged, ChatUtils.getName(BladeConfig.channelToSave))).show(), 450);
                 fragment.finishFragment();
                 return true;
             });
@@ -1099,10 +1099,10 @@ public class AudioPlayerAlert extends BottomSheet implements NotificationCenter.
         });
         likeButton.setOnClickListener(v -> {
             v.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
-            if (ExteraConfig.channelToSave == 0) ExteraConfig.setChannelToSave(UserConfig.getInstance(currentAccount).getClientUserId());
+            if (BladeConfig.channelToSave == 0) BladeConfig.setChannelToSave(UserConfig.getInstance(currentAccount).getClientUserId());
             ArrayList<MessageObject> liked = new ArrayList<>(List.of(MediaController.getInstance().getPlayingMessageObject()));
-            SendMessagesHelper.getInstance(currentAccount).sendMessage(liked, ExteraConfig.channelToSave, true, true, false, 0);
-            BulletinFactory.of((FrameLayout) containerView, resourcesProvider).createSimpleBulletin(R.raw.ic_save_to_music, LocaleController.formatString("TrackSaved", R.string.TrackSaved, ChatUtils.getName(ExteraConfig.channelToSave))).show();
+            SendMessagesHelper.getInstance(currentAccount).sendMessage(liked, BladeConfig.channelToSave, true, true, false, 0);
+            BulletinFactory.of((FrameLayout) containerView, resourcesProvider).createSimpleBulletin(R.raw.ic_save_to_music, LocaleController.formatString("TrackSaved", R.string.TrackSaved, ChatUtils.getName(BladeConfig.channelToSave))).show();
         });
         
         optionsButton = new ActionBarMenuItem(context, null, 0, iconColor, false, resourcesProvider);

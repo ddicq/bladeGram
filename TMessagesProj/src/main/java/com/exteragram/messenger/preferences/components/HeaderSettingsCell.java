@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.preferences.components;
+package com.bladegram.messenger.preferences.components;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
@@ -24,7 +24,7 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
-import com.exteragram.messenger.utils.MonetUtils;
+import com.bladegram.messenger.utils.MonetUtils;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.BuildVars;
@@ -75,7 +75,7 @@ public class HeaderSettingsCell extends FrameLayout {
         subtitleTextView.setTypeface(AndroidUtilities.getTypeface(AndroidUtilities.TYPEFACE_ROBOTO_REGULAR));
         subtitleTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
         subtitleTextView.setLineSpacing(AndroidUtilities.dp(2), 1f);
-        subtitleTextView.setText(LocaleController.getString("AboutExteraDescription", R.string.AboutExteraDescription));
+        subtitleTextView.setText(LocaleController.getString("AboutBladeDescription", R.string.AboutBladeDescription));
         subtitleTextView.setGravity(Gravity.CENTER);
         subtitleTextView.setLines(0);
         subtitleTextView.setMaxLines(0);

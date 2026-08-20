@@ -71,7 +71,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class PollVotesAlert extends BottomSheet {
 
@@ -287,7 +287,7 @@ public class PollVotesAlert extends BottomSheet {
             avatarDrawable = new AvatarDrawable();
 
             avatarImageView = new BackupImageView(context);
-            avatarImageView.setRoundRadius(ExteraConfig.getAvatarCorners(36));
+            avatarImageView.setRoundRadius(BladeConfig.getAvatarCorners(36));
             addView(avatarImageView, LayoutHelper.createFrame(36, 36, (LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT) | Gravity.TOP, LocaleController.isRTL ? 0 : 14, 6, LocaleController.isRTL ? 14 : 0, 0));
 
             nameTextView = new SimpleTextView(context);

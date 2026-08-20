@@ -67,7 +67,7 @@ android {
     compileSdkVersion 33
     buildToolsVersion '33.0.1'
     ndkVersion "21.4.7075529"
-    namespace 'org.telegram.messenger'
+    namespace 'org.telegram.bladegram'
 
     defaultConfig.applicationId = APP_PACKAGE
     defaultConfig.versionCode = Integer.parseInt(APP_VERSION_CODE)
@@ -197,7 +197,7 @@ android {
             def formattedDate = date.format('ddMMyyyy')
             def abi = abis.get(variant.productFlavors.get(0).abiVersionCode)
 
-            outputFileName = "exteraGram-${buildType}${abi}-${formattedDate}.apk"
+            outputFileName = "bladeGram-${buildType}${abi}-${formattedDate}.apk"
             output.versionCodeOverride = defaultConfig.versionCode * (isPmBuild == "true" ? 100 : 10) + variant.productFlavors.get(0).abiVersionCode
         }
     }

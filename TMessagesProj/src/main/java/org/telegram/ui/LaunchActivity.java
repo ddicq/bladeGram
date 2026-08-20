@@ -84,12 +84,12 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.ExteraResources;
-import com.exteragram.messenger.utils.ChatUtils;
-import com.exteragram.messenger.utils.MonetUtils;
-import com.exteragram.messenger.preferences.MainPreferencesActivity;
-import com.exteragram.messenger.utils.UpdaterUtils;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.BladeResources;
+import com.bladegram.messenger.utils.ChatUtils;
+import com.bladegram.messenger.utils.MonetUtils;
+import com.bladegram.messenger.preferences.MainPreferencesActivity;
+import com.bladegram.messenger.utils.UpdaterUtils;
 import com.google.android.gms.common.api.Status;
 import com.google.firebase.appindexing.Action;
 import com.google.firebase.appindexing.FirebaseUserActions;
@@ -213,10 +213,10 @@ import java.util.regex.Pattern;
 
 public class LaunchActivity extends BasePermissionsActivity implements INavigationLayout.INavigationLayoutDelegate, NotificationCenter.NotificationCenterDelegate, DialogsActivity.DialogsActivityDelegate {
 
-    private ExteraResources res = null;
+    private BladeResources res = null;
     @Override
     public Resources getResources() {
-        return res == null ? res = new ExteraResources(super.getResources()) : res;
+        return res == null ? res = new BladeResources(super.getResources()) : res;
     }
     public void reloadIcons() {
         res.getActiveIconPack();
@@ -952,7 +952,7 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
             });
         }
 
-        if (ExteraConfig.checkUpdatesOnLaunch)
+        if (BladeConfig.checkUpdatesOnLaunch)
             UpdaterUtils.checkUpdates(actionBarLayout.getFragmentStack().size() > 0 ? actionBarLayout.getFragmentStack().get(0) : layersActionBarLayout.getFragmentStack().get(0), false);
 
         BackupAgent.requestBackup(this);
@@ -7084,7 +7084,7 @@ public class LaunchActivity extends BasePermissionsActivity implements INavigati
                         showVoiceChatTooltip(mute ? UndoView.ACTION_VOIP_SOUND_MUTED : UndoView.ACTION_VOIP_SOUND_UNMUTED);
                     }
                 }
-            } else if (!ExteraConfig.disablePlayback && (!PhotoViewer.hasInstance() || !PhotoViewer.getInstance().isVisible()) && event.getRepeatCount() == 0) {
+            } else if (!BladeConfig.disablePlayback && (!PhotoViewer.hasInstance() || !PhotoViewer.getInstance().isVisible()) && event.getRepeatCount() == 0) {
                 BaseFragment fragment = mainFragmentsStack.get(mainFragmentsStack.size() - 1);
                 if (fragment instanceof ChatActivity) {
                     if (((ChatActivity) fragment).maybePlayVisibleVideo()) {

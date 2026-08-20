@@ -30,7 +30,7 @@ import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.Components.LayoutHelper;
 import org.telegram.ui.Components.LinkSpanDrawable;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class TextDetailCell extends FrameLayout {
 
@@ -180,7 +180,7 @@ public class TextDetailCell extends FrameLayout {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (needDivider  && !ExteraConfig.disableDividers) {
+        if (needDivider  && !BladeConfig.disableDividers) {
             canvas.drawLine(
                 LocaleController.isRTL ? 0 : AndroidUtilities.dp(20),
                 getMeasuredHeight() - 1,

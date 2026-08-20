@@ -52,7 +52,7 @@ import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.core.graphics.ColorUtils;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AccountInstance;
 import org.telegram.messenger.AndroidUtilities;
@@ -341,7 +341,7 @@ public class FragmentContextView extends FrameLayout implements NotificationCent
                     timeLayout.draw(canvas);
                     canvas.restore();
                 }
-                if (!ExteraConfig.disableDividers)
+                if (!BladeConfig.disableDividers)
                     canvas.drawLine(0, AndroidUtilities.dp(getStyleHeight()) - 1, getMeasuredWidth(), AndroidUtilities.dp(getStyleHeight()) - 1, Theme.dividerPaint);
             }
         };

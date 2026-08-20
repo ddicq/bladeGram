@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.preferences;
+package com.bladegram.messenger.preferences;
 
 import android.content.Context;
 import android.os.CountDownTimer;
@@ -19,7 +19,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ApplicationLoader;
@@ -67,22 +67,22 @@ public class OtherPreferencesActivity extends BasePreferencesActivity {
     @Override
     protected void onItemClick(View view, int position, float x, float y) {
         if (position == crashlyticsRow) {
-            ExteraConfig.editor.putBoolean("useGoogleCrashlytics", ExteraConfig.useGoogleCrashlytics ^= true).apply();
-            ((TextCell) view).setChecked(ExteraConfig.useGoogleCrashlytics);
+            BladeConfig.editor.putBoolean("useGoogleCrashlytics", BladeConfig.useGoogleCrashlytics ^= true).apply();
+            ((TextCell) view).setChecked(BladeConfig.useGoogleCrashlytics);
             if (ApplicationLoader.getFirebaseCrashlytics() != null) {
-                ApplicationLoader.getFirebaseCrashlytics().setCrashlyticsCollectionEnabled(ExteraConfig.useGoogleCrashlytics);
+                ApplicationLoader.getFirebaseCrashlytics().setCrashlyticsCollectionEnabled(BladeConfig.useGoogleCrashlytics);
             }
         } else if (position == analyticsRow) {
-            ExteraConfig.editor.putBoolean("useGoogleAnalytics", ExteraConfig.useGoogleAnalytics ^= true).apply();
-            ((TextCell) view).setChecked(ExteraConfig.useGoogleAnalytics);
+            BladeConfig.editor.putBoolean("useGoogleAnalytics", BladeConfig.useGoogleAnalytics ^= true).apply();
+            ((TextCell) view).setChecked(BladeConfig.useGoogleAnalytics);
             if (ApplicationLoader.getFirebaseAnalytics() != null) {
-                ApplicationLoader.getFirebaseAnalytics().setAnalyticsCollectionEnabled(ExteraConfig.useGoogleAnalytics);
-                if (!ExteraConfig.useGoogleAnalytics) {
+                ApplicationLoader.getFirebaseAnalytics().setAnalyticsCollectionEnabled(BladeConfig.useGoogleAnalytics);
+                if (!BladeConfig.useGoogleAnalytics) {
                     ApplicationLoader.getFirebaseAnalytics().resetAnalyticsData();
                 }
             }
         } else if (position == resetSettingsRow) {
-            ExteraConfig.clearPreferences();
+            BladeConfig.clearPreferences();
             parentLayout.rebuildAllFragmentViews(false, false);
             getNotificationCenter().postNotificationName(NotificationCenter.mainUserInfoChanged);
             getNotificationCenter().postNotificationName(NotificationCenter.dialogFiltersUpdated);
@@ -178,9 +178,9 @@ public class OtherPreferencesActivity extends BasePreferencesActivity {
                 case 2:
                     TextCell textCell = (TextCell) holder.itemView;
                     if (position == crashlyticsRow) {
-                        textCell.setTextAndCheckAndIcon("Crashlytics", ExteraConfig.useGoogleCrashlytics, R.drawable.msg_report, true);
+                        textCell.setTextAndCheckAndIcon("Crashlytics", BladeConfig.useGoogleCrashlytics, R.drawable.msg_report, true);
                     } else if (position == analyticsRow) {
-                        textCell.setTextAndCheckAndIcon("Analytics", ExteraConfig.useGoogleAnalytics, R.drawable.msg_data, false);
+                        textCell.setTextAndCheckAndIcon("Analytics", BladeConfig.useGoogleAnalytics, R.drawable.msg_data, false);
                     } else if (position == deleteAccountRow) {
                         textCell.setTextAndIcon(LocaleController.getString("DeleteAccount", R.string.DeleteAccount), R.drawable.msg_clearcache, false);
                         textCell.setColors(Theme.key_text_RedBold, Theme.key_text_RedBold);

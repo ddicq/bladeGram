@@ -27,7 +27,7 @@ import org.telegram.ui.ActionBar.Theme;
 import org.telegram.ui.Components.LayoutHelper;
 import org.telegram.ui.Components.Switch;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class NotificationsCheckCell extends FrameLayout {
 
@@ -164,7 +164,7 @@ public class NotificationsCheckCell extends FrameLayout {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (!ExteraConfig.disableDividers) {
+        if (!BladeConfig.disableDividers) {
             if (needDivider) {
                 canvas.drawLine(
                     LocaleController.isRTL ? 0 : AndroidUtilities.dp(imageView != null ? 64 : 20),

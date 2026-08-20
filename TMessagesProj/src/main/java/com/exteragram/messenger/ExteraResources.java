@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger;
+package com.bladegram.messenger;
 
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
@@ -17,18 +17,18 @@ import android.graphics.drawable.Drawable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.exteragram.messenger.icons.BaseIconSet;
+import com.bladegram.messenger.icons.BaseIconSet;
 
-public class ExteraResources extends Resources {
+public class BladeResources extends Resources {
 
     private final Resources mResources;
-    private BaseIconSet current = ExteraConfig.getIconPack();
+    private BaseIconSet current = BladeConfig.getIconPack();
 
     public void getActiveIconPack() {
-        current = ExteraConfig.getIconPack();
+        current = BladeConfig.getIconPack();
     }
 
-    public ExteraResources(@NonNull Resources resources) {
+    public BladeResources(@NonNull Resources resources) {
         super(resources.getAssets(), resources.getDisplayMetrics(), resources.getConfiguration());
         mResources = resources;
     }

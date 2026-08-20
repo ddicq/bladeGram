@@ -32,7 +32,7 @@ import org.telegram.ui.Components.AvatarDrawable;
 import org.telegram.ui.Components.BackupImageView;
 import org.telegram.ui.Components.LayoutHelper;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class AccountSelectCell extends FrameLayout {
 
@@ -51,7 +51,7 @@ public class AccountSelectCell extends FrameLayout {
         avatarDrawable.setTextSize(AndroidUtilities.dp(12));
 
         imageView = new BackupImageView(context);
-        imageView.setRoundRadius(ExteraConfig.getAvatarCorners(36));
+        imageView.setRoundRadius(BladeConfig.getAvatarCorners(36));
         addView(imageView, LayoutHelper.createFrame(36, 36, Gravity.LEFT | Gravity.TOP, 10, 10, 0, 0));
 
         textView = new TextView(context);

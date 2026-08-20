@@ -1,6 +1,6 @@
     <!--
 
-     This is the source code of exteraGram for Android.
+     This is the source code of bladeGram for Android.
 
      We do not and cannot prevent the use of our code,
      but be respectful and credit the original author.
@@ -9,10 +9,10 @@
 
      -->
 <resources>
-    <string name="Preferences">Налады exteraGram</string>
+    <string name="Preferences">Налады bladeGram</string>
     <!--  Main Menu  -->
     <string name="Links">Спасылкі</string>
-    <string name="AboutExteraDescription">Эксперыментальны кліент Telegram, заснаваны на афіцыйным зыходным кодзе!</string>
+    <string name="AboutBladeDescription">Эксперыментальны кліент bladeGram, заснаваны на афіцыйным зыходным кодзе!</string>
     <string name="Channel">Канал</string>
     <string name="Crowdin">Пераклад</string>
     <string name="SourceCode">Зыходны код</string>
@@ -39,7 +39,7 @@
     <string name="TabStylePills">Таблеткі</string>
     <string name="TabCounter">Лічыльнік апавяшчэнняў</string>
     <string name="HideAllChats">Схаваць укладку \"%1$s\"</string>
-    <string name="FoldersInfo">Значкі сінхранізаваны з Telegram.</string>
+    <string name="FoldersInfo">Значкі сінхранізаваны з bladeGram.</string>
     <string name="IconPack">Значкі</string>
     <string name="SolarIcons">Выкарыстоўваць значкі \"Solar\"</string>
     <string name="ForceBlur">Прымусовае фокуснае размыццё</string>
@@ -63,7 +63,7 @@
     <!--  General  -->
     <string name="CameraType">Тып камеры</string>
     <string name="CameraTypeSystem">Сістэмная</string>
-    <string name="DefaultCameraInfo">Выкарыстоўваць убудаваную камеру Telegram.</string>
+    <string name="DefaultCameraInfo">Выкарыстоўваць убудаваную камеру bladeGram.</string>
     <string name="CameraXInfo">
 CameraX падтрымліваецца толькі на
 <![CDATA[ <a href="https://developer.android.com/training/camerax/devices"> выбраныя прылады</a> ]]>
@@ -83,7 +83,7 @@ CameraX падтрымліваецца толькі на
     <string name="Profile">Профіль</string>
     <string name="HidePhoneNumber">Схаваць нумар тэлефона</string>
     <string name="ShowIdAndDc">Паказаць ID ды DC</string>
-    <string name="ShowIdAndDcInfo">Telegram APl паказвае ідэнтыфікатары такімі, якія яны ёсць, у той час як Bot API дадае знак мінус для груп і -100 для супергруп, шырокавяшчальных груп і каналаў.</string>
+    <string name="ShowIdAndDcInfo">bladeGram APl паказвае ідэнтыфікатары такімі, якія яны ёсць, у той час як Bot API дадае знак мінус для груп і -100 для супергруп, шырокавяшчальных груп і каналаў.</string>
     <string name="ArchiveOnPull">Адчыняць архіў пры выцягванні</string>
     <string name="DisableUnarchiveSwipe">Адключыць жэст \"вернуць\"</string>
     <string name="DisableUnarchiveSwipeInfo">Пракрутка налева не прывядзе да выдалення чатаў з архіва.</string>
@@ -133,7 +133,7 @@ CameraX падтрымліваецца толькі на
     <string name="RememberLastUsedCamera">Памятаць апошнюю выкарыстаную камеру</string>
     <string name="RememberLastUsedCameraInfo">Пры запісе відэапаведамленняў будзе выбрана камера, якая выкарыстоўвалася апошняй.</string>
     <string name="PauseOnMinimize">Аўта-паўза</string>
-    <string name="PauseOnMinimizeInfo">Прыпыняе прайграванне відэа, калі прылада заблакавана або exteraGram згорнуты.</string>
+    <string name="PauseOnMinimizeInfo">Прыпыняе прайграванне відэа, калі прылада заблакавана або bladeGram згорнуты.</string>
     <string name="DisablePlayback">Адключыць прайграванне</string>
     <string name="DisablePlaybackInfo">Адключае прайграванне пры націску кнопкі гучнасці.</string>
     <!--  Boost  -->
@@ -172,7 +172,7 @@ CameraX падтрымліваецца толькі на
     <string name="Datacenter">Дата-цэнтр</string>
     <!--  Other  -->
     <string name="RestartRequired">Перапусціце прыкладанне каб захаваць змены.</string>
-    <string name="ResetSettingsBulletin">**exteraGram** Налады былі скінуты.</string>
+    <string name="ResetSettingsBulletin">**bladeGram** Налады былі скінуты.</string>
     <string name="UserNotFound">Карыстальнік з гэтым **ID** не знойдзены.</string>
     <string name="PhotoCopied">Фота скапіравана ў буфер абмену.</string>
     <string name="MutualContact">узаемны кантакт</string>

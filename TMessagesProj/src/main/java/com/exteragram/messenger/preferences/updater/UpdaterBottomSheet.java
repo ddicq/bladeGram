@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.preferences.updater;
+package com.bladegram.messenger.preferences.updater;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -23,9 +23,9 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.utils.LocaleUtils;
-import com.exteragram.messenger.utils.UpdaterUtils;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.utils.LocaleUtils;
+import com.bladegram.messenger.utils.UpdaterUtils;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.BuildVars;
@@ -87,7 +87,7 @@ public class UpdaterBottomSheet extends BottomSheet {
         timeView.setTextSize(AndroidUtilities.dp(13));
         timeView.setTypeface(AndroidUtilities.getTypeface(AndroidUtilities.TYPEFACE_ROBOTO_REGULAR));
         timeView.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
-        timeView.setText(available ? update.uploadDate : LocaleController.getString("LastCheck", R.string.LastCheck) + ": " + LocaleController.formatDateTime(ExteraConfig.lastUpdateCheckTime / 1000));
+        timeView.setText(available ? update.uploadDate : LocaleController.getString("LastCheck", R.string.LastCheck) + ": " + LocaleController.formatDateTime(BladeConfig.lastUpdateCheckTime / 1000));
         header.addView(timeView, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 20, Gravity.LEFT, available ? 75 : 0, 35, 0, 0));
 
         TextCell version = new TextCell(context);
@@ -104,7 +104,7 @@ public class UpdaterBottomSheet extends BottomSheet {
             @Override
             protected void onDraw(Canvas canvas) {
                 super.onDraw(canvas);
-                if (!ExteraConfig.disableDividers)
+                if (!BladeConfig.disableDividers)
                     canvas.drawLine(0, AndroidUtilities.dp(1), getMeasuredWidth(), AndroidUtilities.dp(1), Theme.dividerPaint);
             }
         };
@@ -140,7 +140,7 @@ public class UpdaterBottomSheet extends BottomSheet {
             doneButton.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
             doneButton.setText(LocaleController.getString("AppUpdateDownloadNow", R.string.AppUpdateDownloadNow));
             doneButton.setOnClickListener(v -> {
-                UpdaterUtils.downloadApk(fragment.getContext(), update.downloadURL, "exteraGram " + update.version);
+                UpdaterUtils.downloadApk(fragment.getContext(), update.downloadURL, "bladeGram " + update.version);
                 dismiss();
             });
             linearLayout.addView(doneButton, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 48, 0, 16, 15, 16, 5));
@@ -156,7 +156,7 @@ public class UpdaterBottomSheet extends BottomSheet {
             scheduleButton.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 14);
             scheduleButton.setText(LocaleController.getString("AppUpdateRemindMeLater", R.string.AppUpdateRemindMeLater));
             scheduleButton.setOnClickListener(v -> {
-                ExteraConfig.editor.putLong("updateScheduleTimestamp", ExteraConfig.updateScheduleTimestamp = System.currentTimeMillis()).apply();
+                BladeConfig.editor.putLong("updateScheduleTimestamp", BladeConfig.updateScheduleTimestamp = System.currentTimeMillis()).apply();
                 dismiss();
             });
             linearLayout.addView(scheduleButton, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 48, 0, 16, 0, 16, 0));
@@ -171,9 +171,9 @@ public class UpdaterBottomSheet extends BottomSheet {
             TextCell checkOnLaunch = new TextCell(context);
             checkOnLaunch.setEnabled(true);
             checkOnLaunch.setBackground(Theme.createSelectorDrawable(Theme.getColor(Theme.key_listSelector), 100, 0));
-            checkOnLaunch.setTextAndCheckAndIcon(LocaleController.getString("CheckOnLaunch", R.string.CheckOnLaunch), ExteraConfig.checkUpdatesOnLaunch, R.drawable.msg_recent, true);
+            checkOnLaunch.setTextAndCheckAndIcon(LocaleController.getString("CheckOnLaunch", R.string.CheckOnLaunch), BladeConfig.checkUpdatesOnLaunch, R.drawable.msg_recent, true);
             checkOnLaunch.setOnClickListener(v -> {
-                ExteraConfig.editor.putBoolean("checkUpdatesOnLaunch", ExteraConfig.checkUpdatesOnLaunch ^= true).apply();
+                BladeConfig.editor.putBoolean("checkUpdatesOnLaunch", BladeConfig.checkUpdatesOnLaunch ^= true).apply();
                 checkOnLaunch.setChecked(!checkOnLaunch.getCheckBox().isChecked());
             });
             linearLayout.addView(checkOnLaunch);
@@ -209,7 +209,7 @@ public class UpdaterBottomSheet extends BottomSheet {
             checkUpdates.setOnClickListener(v -> {
                 checkUpdates.setText(LocaleController.getString("CheckingForUpdates", R.string.CheckingForUpdates));
                 UpdaterUtils.checkUpdates(fragment, true, () -> {
-                    timeView.setText(LocaleController.getString("LastCheck", R.string.LastCheck) + ": " + LocaleController.formatDateTime(ExteraConfig.lastUpdateCheckTime / 1000));
+                    timeView.setText(LocaleController.getString("LastCheck", R.string.LastCheck) + ": " + LocaleController.formatDateTime(BladeConfig.lastUpdateCheckTime / 1000));
                     checkUpdates.setText(LocaleController.getString("CheckForUpdates", R.string.CheckForUpdates));
                     BulletinFactory.of(getContainer(), null).createErrorBulletin(LocaleController.getString("NoUpdates", R.string.NoUpdates)).show();
                 }, this::dismiss);

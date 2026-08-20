@@ -51,7 +51,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class FiltersView extends RecyclerListView {
 
@@ -750,12 +750,12 @@ public class FiltersView extends RecyclerListView {
                         Theme.setCombinedDrawableColor(combinedDrawable, getThemedColor(Theme.key_avatar_actionBarIconBlue), true);
                         avatarImageView.setImageDrawable(combinedDrawable);
                     } else {
-                        avatarImageView.getImageReceiver().setRoundRadius(ExteraConfig.getAvatarCorners(32));
+                        avatarImageView.getImageReceiver().setRoundRadius(BladeConfig.getAvatarCorners(32));
                         avatarImageView.getImageReceiver().setForUserOrChat(user, thumbDrawable);
                     }
                 } else if (data.chat instanceof TLRPC.Chat) {
                     TLRPC.Chat chat = (TLRPC.Chat) data.chat;
-                    avatarImageView.getImageReceiver().setRoundRadius(ExteraConfig.getAvatarCorners(32));
+                    avatarImageView.getImageReceiver().setRoundRadius(BladeConfig.getAvatarCorners(32));
                     avatarImageView.getImageReceiver().setForUserOrChat(chat, thumbDrawable);
                 }
             } else {

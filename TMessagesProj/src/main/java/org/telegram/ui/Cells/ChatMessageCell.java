@@ -78,7 +78,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.math.MathUtils;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.PhoneFormat.PhoneFormat;
 import org.telegram.messenger.AccountInstance;
@@ -1299,7 +1299,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
         backgroundDrawable = new MessageBackgroundDrawable(this);
         avatarImage = new ImageReceiver();
         avatarImage.setAllowLoadingOnAttachedOnly(true);
-        avatarImage.setRoundRadius(ExteraConfig.getAvatarCorners(42));
+        avatarImage.setRoundRadius(BladeConfig.getAvatarCorners(42));
         avatarDrawable = new AvatarDrawable();
         replyImageReceiver = new ImageReceiver(this);
         replyImageReceiver.setAllowLoadingOnAttachedOnly(true);
@@ -1403,7 +1403,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
         pollAvatarImagesVisible = new boolean[3];
         for (int a = 0; a < pollAvatarImages.length; a++) {
             pollAvatarImages[a] = new ImageReceiver(this);
-            pollAvatarImages[a].setRoundRadius(ExteraConfig.getAvatarCorners(16));
+            pollAvatarImages[a].setRoundRadius(BladeConfig.getAvatarCorners(16));
             pollAvatarDrawables[a] = new AvatarDrawable();
             pollAvatarDrawables[a].setTextSize(AndroidUtilities.dp(22));
         }
@@ -1424,7 +1424,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
         commentAvatarImagesVisible = new boolean[3];
         for (int a = 0; a < commentAvatarImages.length; a++) {
             commentAvatarImages[a] = new ImageReceiver(this);
-            commentAvatarImages[a].setRoundRadius(ExteraConfig.getAvatarCorners(24));
+            commentAvatarImages[a].setRoundRadius(BladeConfig.getAvatarCorners(24));
             commentAvatarDrawables[a] = new AvatarDrawable();
             commentAvatarDrawables[a].setTextSize(AndroidUtilities.dp(18));
         }
@@ -5666,7 +5666,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                 drawName = messageObject.isFromGroup() && messageObject.isSupergroup() || messageObject.isImportedForward() && messageObject.messageOwner.fwd_from.from_id == null;
                 drawForwardedName = !isRepliesChat;
                 drawPhotoImage = true;
-                photoImage.setRoundRadius(ExteraConfig.getAvatarCorners(44));
+                photoImage.setRoundRadius(BladeConfig.getAvatarCorners(44));
                 canChangeRadius = false;
                 if (AndroidUtilities.isTablet()) {
                     backgroundWidth = Math.min(AndroidUtilities.getMinTabletSide() - AndroidUtilities.dp(drawAvatar ? 102 : 50), AndroidUtilities.dp(270));
@@ -6515,9 +6515,9 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     float maxHeight;
                     int maxWidth;
                     if (AndroidUtilities.isTablet()) {
-                        maxHeight = maxWidth = (int) (AndroidUtilities.getMinTabletSide() * (0.4f + (ExteraConfig.stickerSize - 14.0f) / 40));
+                        maxHeight = maxWidth = (int) (AndroidUtilities.getMinTabletSide() * (0.4f + (BladeConfig.stickerSize - 14.0f) / 40));
                     } else {
-                        maxHeight = maxWidth = (int) (Math.min(getParentWidth(), AndroidUtilities.displaySize.y) * (0.5f + (ExteraConfig.stickerSize - 14.0f) / 30));
+                        maxHeight = maxWidth = (int) (Math.min(getParentWidth(), AndroidUtilities.displaySize.y) * (0.5f + (BladeConfig.stickerSize - 14.0f) / 30));
                     }
                     String filter;
                     if (messageObject.isAnimatedEmoji() || messageObject.isDice()) {
@@ -6602,9 +6602,9 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                     backgroundWidth = photoWidth + AndroidUtilities.dp(12);
 
                     canChangeRadius = false;
-                    if (ExteraConfig.stickerShape == 1) {
+                    if (BladeConfig.stickerShape == 1) {
                         photoImage.setRoundRadius(AndroidUtilities.dp(6));
-                    } else if (ExteraConfig.stickerShape == 2) {
+                    } else if (BladeConfig.stickerShape == 2) {
                         canChangeRadius = true;
                     } else {
                         photoImage.setRoundRadius(AndroidUtilities.dp(0));
@@ -12353,7 +12353,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
     }
 
     private boolean checkNeedDrawShareButton(MessageObject messageObject) {
-        if (currentMessageObject.deleted || currentMessageObject.isSponsored() || ExteraConfig.hideShareButton) {
+        if (currentMessageObject.deleted || currentMessageObject.isSponsored() || BladeConfig.hideShareButton) {
             return false;
         }
         if (currentPosition != null) {
@@ -12990,7 +12990,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
             Long emojiStatusId = UserObject.getEmojiStatusDocumentId(currentUser);
             if (emojiStatusId != null) {
                 return emojiStatusId;
-            } else if (ExteraConfig.isExteraDev(currentUser)) {
+            } else if (BladeConfig.isBladeDev(currentUser)) {
                 return ContextCompat.getDrawable(ApplicationLoader.applicationContext, R.drawable.ic_status_arrow).mutate();
             } else if (currentUser.premium) {
                 return ContextCompat.getDrawable(ApplicationLoader.applicationContext, R.drawable.msg_premium_liststar).mutate();
@@ -13785,7 +13785,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
         }
 
         Drawable commentStickerDrawable = Theme.getThemeDrawable(Theme.key_drawable_commentSticker);
-        setDrawableBounds(commentStickerDrawable, sideStartX + AndroidUtilities.dp(4 + (ExteraConfig.useSolarIcons ? 2 : 0)), sideStartY + AndroidUtilities.dp(4 + (ExteraConfig.useSolarIcons ? 2 : 0)));
+        setDrawableBounds(commentStickerDrawable, sideStartX + AndroidUtilities.dp(4 + (BladeConfig.useSolarIcons ? 2 : 0)), sideStartY + AndroidUtilities.dp(4 + (BladeConfig.useSolarIcons ? 2 : 0)));
         if (alpha != 1f) {
             commentStickerDrawable.setAlpha((int) (255 * alpha));
             commentStickerDrawable.draw(canvas);
@@ -15229,7 +15229,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                         commentAvatarImages[a].setImageX(ax + toAdd * a);
                         commentAvatarImages[a].setImageY(y - AndroidUtilities.dp(4) + (pinnedBottom ? AndroidUtilities.dp(2) : 0));
                         if (a != commentAvatarImages.length - 1) {
-                            canvas.drawRoundRect(commentAvatarImages[a].getCenterX() - AndroidUtilities.dp(13), commentAvatarImages[a].getCenterY() - AndroidUtilities.dp(13), commentAvatarImages[a].getCenterX() + AndroidUtilities.dp(13), commentAvatarImages[a].getCenterY() + AndroidUtilities.dp(13), ExteraConfig.getAvatarCorners(26), ExteraConfig.getAvatarCorners(26), currentBackgroundDrawable.getPaint());
+                            canvas.drawRoundRect(commentAvatarImages[a].getCenterX() - AndroidUtilities.dp(13), commentAvatarImages[a].getCenterY() - AndroidUtilities.dp(13), commentAvatarImages[a].getCenterX() + AndroidUtilities.dp(13), commentAvatarImages[a].getCenterY() + AndroidUtilities.dp(13), BladeConfig.getAvatarCorners(26), BladeConfig.getAvatarCorners(26), currentBackgroundDrawable.getPaint());
                         }
                         commentAvatarImages[a].draw(canvas);
                         drawnAvatars = true;
@@ -15687,7 +15687,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
     }
 
     public void drawTime(Canvas canvas, float alpha, boolean fromParent) {
-        if ((!drawFromPinchToZoom && delegate != null && delegate.getPinchToZoomHelper() != null && delegate.getPinchToZoomHelper().isInOverlayModeFor(this) && shouldDrawTimeOnMedia()) || (ExteraConfig.hideStickerTime && !isDrawSelectionBackground() && currentMessageObject.isAnyKindOfSticker())) {
+        if ((!drawFromPinchToZoom && delegate != null && delegate.getPinchToZoomHelper() != null && delegate.getPinchToZoomHelper().isInOverlayModeFor(this) && shouldDrawTimeOnMedia()) || (BladeConfig.hideStickerTime && !isDrawSelectionBackground() && currentMessageObject.isAnyKindOfSticker())) {
             return;
         }
         for (int i = 0; i < 2; i++) {
@@ -15829,7 +15829,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
             paint.setAlpha((int) (oldAlpha * timeAlpha * alpha));
 
             int r;
-            if ((documentAttachType != DOCUMENT_ATTACH_TYPE_ROUND && documentAttachType != DOCUMENT_ATTACH_TYPE_STICKER && currentMessageObject.type != MessageObject.TYPE_EMOJIS) || (documentAttachType == DOCUMENT_ATTACH_TYPE_STICKER && ExteraConfig.stickerShape == 2)) {
+            if ((documentAttachType != DOCUMENT_ATTACH_TYPE_ROUND && documentAttachType != DOCUMENT_ATTACH_TYPE_STICKER && currentMessageObject.type != MessageObject.TYPE_EMOJIS) || (documentAttachType == DOCUMENT_ATTACH_TYPE_STICKER && BladeConfig.stickerShape == 2)) {
                 int[] rad = photoImage.getRoundRadius();
                 r = Math.min(AndroidUtilities.dp(8), Math.max(rad[2], rad[3]));
                 bigRadius = SharedConfig.bubbleRadius >= 10;
@@ -17124,7 +17124,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                         pollAvatarImages[a].setImageX(ax + toAdd * a);
                         pollAvatarImages[a].setImageY(y - AndroidUtilities.dp(1));
                         if (a != pollAvatarImages.length - 1) {
-                            canvas.drawRoundRect(pollAvatarImages[a].getCenterX() - AndroidUtilities.dp(9), pollAvatarImages[a].getCenterY() - AndroidUtilities.dp(9), pollAvatarImages[a].getCenterX() + AndroidUtilities.dp(9), pollAvatarImages[a].getCenterY() + AndroidUtilities.dp(9), ExteraConfig.getAvatarCorners(18), ExteraConfig.getAvatarCorners(18), currentBackgroundDrawable.getPaint());
+                            canvas.drawRoundRect(pollAvatarImages[a].getCenterX() - AndroidUtilities.dp(9), pollAvatarImages[a].getCenterY() - AndroidUtilities.dp(9), pollAvatarImages[a].getCenterX() + AndroidUtilities.dp(9), pollAvatarImages[a].getCenterY() + AndroidUtilities.dp(9), BladeConfig.getAvatarCorners(18), BladeConfig.getAvatarCorners(18), currentBackgroundDrawable.getPaint());
                         }
                         if (animatePollAvatars && animatePollAnswerAlpha) {
                             float alpha = Math.min(pollUnvoteInProgress ? (1.0f - pollAnimationProgress) / 0.3f : pollAnimationProgress, 1.0f);
@@ -17258,7 +17258,7 @@ public class ChatMessageCell extends BaseCell implements SeekBar.SeekBarDelegate
                         float oldAlpha = Theme.chat_replyLinePaint.getAlpha() / 255.0f;
                         Theme.chat_replyLinePaint.setAlpha((int) ((255 - alpha) * oldAlpha));
                     }
-                    if (!ExteraConfig.disableDividers) canvas.drawLine(-AndroidUtilities.dp(2), button.height + AndroidUtilities.dp(13), backgroundWidth - AndroidUtilities.dp(58), button.height + AndroidUtilities.dp(13), Theme.chat_replyLinePaint);
+                    if (!BladeConfig.disableDividers) canvas.drawLine(-AndroidUtilities.dp(2), button.height + AndroidUtilities.dp(13), backgroundWidth - AndroidUtilities.dp(58), button.height + AndroidUtilities.dp(13), Theme.chat_replyLinePaint);
                     if (pollVoteInProgress && a == pollVoteInProgressNum) {
                         Theme.chat_instantViewRectPaint.setColor(getThemedColor(currentMessageObject.isOutOwner() ? Theme.key_chat_outAudioSeekbarFill : Theme.key_chat_inAudioSeekbarFill));
                         if (animatePollAnswerAlpha) {

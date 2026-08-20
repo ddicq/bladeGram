@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.preferences.components;
+package com.bladegram.messenger.preferences.components;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -31,8 +31,8 @@ import android.widget.FrameLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.utils.LocaleUtils;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.utils.LocaleUtils;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
@@ -130,7 +130,7 @@ public class ChatListPreviewCell extends FrameLayout {
     }
 
     public void updateStatus(boolean animate) {
-        float to = !ExteraConfig.hideActionBarStatus ? 1 : 0;
+        float to = !BladeConfig.hideActionBarStatus ? 1 : 0;
         if (to == statusProgress && animate || !UserConfig.getInstance(UserConfig.selectedAccount).isPremium())
             return;
         if (animate) {
@@ -149,7 +149,7 @@ public class ChatListPreviewCell extends FrameLayout {
     }
 
     public void updateCenteredTitle(boolean animate) {
-        float to = ExteraConfig.centerTitle ? 1 : 0;
+        float to = BladeConfig.centerTitle ? 1 : 0;
         if (to == centeredTitleProgress && animate)
             return;
         if (animate) {
@@ -203,7 +203,7 @@ public class ChatListPreviewCell extends FrameLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!ExteraConfig.disableDividers)
+        if (!BladeConfig.disableDividers)
             canvas.drawLine(LocaleController.isRTL ? 0 : AndroidUtilities.dp(21), getMeasuredHeight() - 1, getMeasuredWidth() - (LocaleController.isRTL ? AndroidUtilities.dp(21) : 0), getMeasuredHeight() - 1, Theme.dividerPaint);
     }
 

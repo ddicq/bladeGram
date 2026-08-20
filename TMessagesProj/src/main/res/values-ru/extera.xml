@@ -2,7 +2,7 @@
 
 <!--
 
- Это исходный код exteraGram для Android.
+ Это исходный код bladeGram для Android.
 
  Мы не запрещаем и не можем запретить использовать наш код,
  но имейте уважение и указывайте оригинального автора.
@@ -12,11 +12,11 @@
 -->
 
 <resources>
-    <string name="Preferences">Настройки exteraGram</string>
+    <string name="Preferences">Настройки bladeGram</string>
 
     <!-- Main Menu -->
     <string name="Links">Ссылки</string>
-    <string name="AboutExteraDescription">Экспериментальный Telegram-клиент, основанный на официальном исходном коде!</string>
+    <string name="AboutBladeDescription">Экспериментальный bladeGram-клиент, основанный на официальном исходном коде!</string>
     <string name="Channel">Канал</string>
     <string name="Crowdin">Перевод</string>
     <string name="SourceCode">Исходный код</string>
@@ -46,7 +46,7 @@
     <string name="TabStylePills">Таблетки</string>
     <string name="TabCounter">Счётчик уведомлений</string>
     <string name="HideAllChats">Скрыть папку \"%1$s\"</string>
-    <string name="FoldersInfo">Иконки синхронизируются с Telegram.</string>
+    <string name="FoldersInfo">Иконки синхронизируются с bladeGram.</string>
 
     <string name="IconPack">Иконки</string>
     <string name="SolarIcons">Использовать набор \"Solar\"</string>
@@ -75,7 +75,7 @@
     <!-- General -->
     <string name="CameraType">Тип камеры</string>
     <string name="CameraTypeSystem">Системная</string>
-    <string name="DefaultCameraInfo">Встроенная камера Telegram.</string>
+    <string name="DefaultCameraInfo">Встроенная камера bladeGram.</string>
     <string name="CameraXInfo">CameraX поддерживается только на <![CDATA[<a href="https://developer.android.com/training/camerax/devices">выбранных устройствах</a>]]>, эффекты и линзы зависят от вашего производителя.</string>
     <string name="SystemCameraInfo">Позволяет получить доступ напрямую к системной камере (не применимо к видеосообщениям).</string>
     <string name="PerformanceMode">Производительный режим</string>
@@ -94,7 +94,7 @@
     <string name="Profile">Профиль</string>
     <string name="HidePhoneNumber">Скрыть номер телефона</string>
     <string name="ShowIdAndDc">Показывать ID и DC</string>
-    <string name="ShowIdAndDcInfo">APl Telegram показывает ID таким, какой он есть, а Bot API добавляет знак минус для групп и -100 для супергрупп, мегагрупп и каналов.</string>
+    <string name="ShowIdAndDcInfo">APl bladeGram показывает ID таким, какой он есть, а Bot API добавляет знак минус для групп и -100 для супергрупп, мегагрупп и каналов.</string>
 
     <string name="ArchiveOnPull">Открывать архив при вытягивании</string>
     <string name="DisableUnarchiveSwipe">Отключить жест \"Вернуть\"</string>
@@ -139,7 +139,7 @@
     <string name="HidePhotoCounter">Скрыть счетчик фотографий</string>
     <string name="HidePhotoCounterInfo">Надоедливый счетчик фотографий в верхней части экрана исчезнет из вашего поля зрения.</string>
     <string name="HideCameraTile">Скрыть плитку камеры в галерее</string>
-    <string name="HideCameraTileInfo">Плитка камеры будет заменена плавающей кнопкой. При нажатии на кнопку запустится камера Telegram, при удержании - системная камера.</string>
+    <string name="HideCameraTileInfo">Плитка камеры будет заменена плавающей кнопкой. При нажатии на кнопку запустится камера bladeGram, при удержании - системная камера.</string>
 
     <string name="StaticZoom">Статичный зум</string>
     <string name="StaticZoomInfo">Зум при записи видеосообщений не будет сбрасываться, если вы отпустите пальцы.</string>
@@ -200,7 +200,7 @@
 
     <!-- Other -->
     <string name="RestartRequired">Перезапустите приложение, чтобы изменения вступили в силу.</string>
-    <string name="ResetSettingsBulletin">Настройки **exteraGram** сброшены.</string>
+    <string name="ResetSettingsBulletin">Настройки **bladeGram** сброшены.</string>
     <string name="UserNotFound">Пользователь с этим **ID** не найден.</string>
     <string name="PhotoCopied">Фото скопировано в буфер обмена.</string>
 

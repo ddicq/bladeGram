@@ -1,6 +1,6 @@
     <!--
 
-     This is the source code of exteraGram for Android.
+     This is the source code of bladeGram for Android.
 
      We do not and cannot prevent the use of our code,
      but be respectful and credit the original author.
@@ -9,10 +9,10 @@
 
      -->
 <resources>
-    <string name="Preferences">exteraGram Einstellungen</string>
+    <string name="Preferences">bladeGram Einstellungen</string>
     <!--  Main Menu  -->
     <string name="Links">Links</string>
-    <string name="AboutExteraDescription">Experimenteller Telegram-Client basierend auf offiziellen Telegram-Quellen!</string>
+    <string name="AboutBladeDescription">Experimenteller bladeGram-Client basierend auf offiziellen bladeGram-Quellen!</string>
     <string name="Channel">Kanal</string>
     <string name="Crowdin">Übersetzen</string>
     <string name="SourceCode">Quellcode</string>
@@ -55,7 +55,7 @@
     <!--  General  -->
     <string name="CameraType">Kameratyp</string>
     <string name="CameraTypeSystem">System</string>
-    <string name="DefaultCameraInfo">In Telegram eingebaute Kamera verwenden.</string>
+    <string name="DefaultCameraInfo">In bladeGram eingebaute Kamera verwenden.</string>
     <string name="CameraXInfo">
 CameraX wird nur auf
 <![CDATA[ <a href="https://developer.android.com/training/camerax/devices">ausgewählten Geräten unterstützt</a> ]]>
@@ -75,7 +75,7 @@ CameraX wird nur auf
     <string name="Profile">Profil</string>
     <string name="HidePhoneNumber">Meine Telefonnummer ausblenden</string>
     <string name="ShowIdAndDc">ID und DC anzeigen</string>
-    <string name="ShowIdAndDcInfo">Die Telegram-API zeigt die IDs so an, wie sie sind, während die Bot-API ein Minuszeichen für Gruppen und -100 für Supergruppen, Broadcast-Gruppen und Kanäle hinzufügt.</string>
+    <string name="ShowIdAndDcInfo">Die bladeGram-API zeigt die IDs so an, wie sie sind, während die Bot-API ein Minuszeichen für Gruppen und -100 für Supergruppen, Broadcast-Gruppen und Kanäle hinzufügt.</string>
     <string name="ArchiveOnPull">Archiv beim Herunterziehen öffnen</string>
     <string name="DisableUnarchiveSwipe">\"Einblenden\"-Geste deaktivieren</string>
     <string name="DisableUnarchiveSwipeInfo">Wischen nach links wird Chats nicht aus dem Archiv entfernen.</string>
@@ -109,7 +109,7 @@ CameraX wird nur auf
     <string name="RememberLastUsedCamera">Zuletzt verwendete Kamera merken</string>
     <string name="RememberLastUsedCameraInfo">Beim Aufnehmen von Videonachrichten wird die zuletzt verwendete Kamera ausgewählt.</string>
     <string name="PauseOnMinimize">Auto-Pause</string>
-    <string name="PauseOnMinimizeInfo">Pausiert eine Videowiedergabe, wenn das Gerät gesperrt ist oder exteraGram minimiert wird.</string>
+    <string name="PauseOnMinimizeInfo">Pausiert eine Videowiedergabe, wenn das Gerät gesperrt ist oder bladeGram minimiert wird.</string>
     <string name="DisablePlayback">Wiedergabe deaktivieren</string>
     <string name="DisablePlaybackInfo">Deaktiviert die Wiedergabe beim Drücken von Lautstärketasten.</string>
     <!--  Updates  -->

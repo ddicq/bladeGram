@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -10,10 +10,10 @@
 
 -->
 <resources>
-    <string name="Preferences">تفضيلات exteraGram</string>
+    <string name="Preferences">تفضيلات bladeGram</string>
     <!-- Main Menu -->
     <string name="Links">الروابط</string>
-    <string name="AboutExteraDescription">بديل تليجرام تجريبي، مبني على مصادر تليجرام الرسمية!</string>
+    <string name="AboutBladeDescription">بديل تليجرام تجريبي، مبني على مصادر تليجرام الرسمية!</string>
     <string name="Channel">قناة</string>
     <string name="Crowdin">ترجمة</string>
     <string name="SourceCode">الكود المصدري</string>
@@ -80,7 +80,7 @@
     <string name="Profile">الملف الشخصي</string>
     <string name="HidePhoneNumber">إخفاء رقم الهاتف</string>
     <string name="ShowIdAndDc">إظهار المعرف وDC</string>
-    <string name="ShowIdAndDcInfo">يُظهِر Telegram API المعرفات كما هي، في حين ان Bot API يضيف علامة \'-\" للمجموعات و-100 للمجموعات الخارقة والقنوات.</string>
+    <string name="ShowIdAndDcInfo">يُظهِر bladeGram API المعرفات كما هي، في حين ان Bot API يضيف علامة \'-\" للمجموعات و-100 للمجموعات الخارقة والقنوات.</string>
     <string name="ArchiveOnPull">فتح الأرشيف عند السحب للأسفل</string>
     <string name="DisableUnarchiveSwipe">تعطيل \"إلغاء الأرشيف\" بالسحب</string>
     <string name="DisableUnarchiveSwipeInfo">السحب إلى اليسار لن يزيل المحادثات من الأرشيف.</string>
@@ -130,7 +130,7 @@
     <string name="RememberLastUsedCamera">تذكّر آخر كاميرا مستخدمة</string>
     <string name="RememberLastUsedCameraInfo">عند تسجيل رسائل الفيديو، سيتم تحديد آخر كاميرا مستخدمة.</string>
     <string name="PauseOnMinimize">إيقاف مؤقت تلقائي</string>
-    <string name="PauseOnMinimizeInfo">إيقاف تشغيل الفيديو عندما يكون الجهاز مقفلاً، أو يتم تصغير ExteraGram.</string>
+    <string name="PauseOnMinimizeInfo">إيقاف تشغيل الفيديو عندما يكون الجهاز مقفلاً، أو يتم تصغير BladeGram.</string>
     <string name="DisablePlayback">تعطيل التشغيل في الخلفية</string>
     <string name="DisablePlaybackInfo">تعطيل التشغيل عند الضغط على زر الصوت.</string>
     <!-- Boost -->
@@ -169,7 +169,7 @@
     <string name="Datacenter">قاعدة البيانات</string>
     <!-- Other -->
     <string name="RestartRequired">إعادة تشغيل التطبيق، لتطبيق الميزات.</string>
-    <string name="ResetSettingsBulletin">تمت إعادة تعيين تفضيلات **exteraGram**.</string>
+    <string name="ResetSettingsBulletin">تمت إعادة تعيين تفضيلات **bladeGram**.</string>
     <string name="UserNotFound">لم يتم العثور على مستخدم مع هذا **المعرف**.</string>
     <string name="PhotoCopied">تم نسخ الصورة إلى الحافظة.</string>
     <string name="MutualContact">جهة اتصال مشتركة</string>

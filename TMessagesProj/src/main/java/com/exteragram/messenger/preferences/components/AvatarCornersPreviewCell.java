@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.preferences.components;
+package com.bladegram.messenger.preferences.components;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -24,7 +24,7 @@ import android.widget.FrameLayout;
 
 import androidx.core.graphics.ColorUtils;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
@@ -58,11 +58,11 @@ public class AvatarCornersPreviewCell extends FrameLayout {
 
         int startCornersSize = 0, endCornersSize = 30;
         seekBar = new AltSeekbar(context, (float p) -> {
-            ExteraConfig.editor.putFloat("avatarCorners", ExteraConfig.avatarCorners = p).apply();
+            BladeConfig.editor.putFloat("avatarCorners", BladeConfig.avatarCorners = p).apply();
             invalidate();
             fragment.rebuildAllFragmentViews(false, false);
         }, startCornersSize, endCornersSize, LocaleController.getString("AvatarCorners", R.string.AvatarCorners), LocaleController.getString("AvatarCornersLeft", R.string.AvatarCornersLeft), LocaleController.getString("AvatarCornersRight", R.string.AvatarCornersRight));
-        seekBar.setProgress((ExteraConfig.avatarCorners - startCornersSize) / (float) (endCornersSize - startCornersSize));
+        seekBar.setProgress((BladeConfig.avatarCorners - startCornersSize) / (float) (endCornersSize - startCornersSize));
         addView(seekBar, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
 
         outlinePaint.setStyle(Paint.Style.STROKE);
@@ -100,7 +100,7 @@ public class AvatarCornersPreviewCell extends FrameLayout {
 
                 Theme.dialogs_onlineCirclePaint.setColor(Color.argb(90, r, g, b));
                 canvas.drawRoundRect(AndroidUtilities.dp(92), h / 2.0f + AndroidUtilities.dpf2(7.5f), w - AndroidUtilities.dp(50), h / 2.0f + AndroidUtilities.dp(15.5f), w / 2.0f, w / 2.0f, Theme.dialogs_onlineCirclePaint);
-                canvas.drawRoundRect(AndroidUtilities.dp(20), h / 2.0f - AndroidUtilities.dp(28), AndroidUtilities.dp(76), h / 2.0f + AndroidUtilities.dp(28), ExteraConfig.getAvatarCorners(56), ExteraConfig.getAvatarCorners(56), Theme.dialogs_onlineCirclePaint);
+                canvas.drawRoundRect(AndroidUtilities.dp(20), h / 2.0f - AndroidUtilities.dp(28), AndroidUtilities.dp(76), h / 2.0f + AndroidUtilities.dp(28), BladeConfig.getAvatarCorners(56), BladeConfig.getAvatarCorners(56), Theme.dialogs_onlineCirclePaint);
             }
         };
         preview.setWillNotDraw(false);
@@ -122,7 +122,7 @@ public class AvatarCornersPreviewCell extends FrameLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!ExteraConfig.disableDividers && needDivider)
+        if (!BladeConfig.disableDividers && needDivider)
             canvas.drawLine(LocaleController.isRTL ? 0 : AndroidUtilities.dp(21), getMeasuredHeight() - 1, getMeasuredWidth() - (LocaleController.isRTL ? AndroidUtilities.dp(21) : 0), getMeasuredHeight() - 1, Theme.dividerPaint);
     }
 

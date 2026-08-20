@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -10,10 +10,10 @@
 
 -->
 <resources>
-    <string name="Preferences">Preferencias de exteraGram</string>
+    <string name="Preferences">Preferencias de bladeGram</string>
     <!-- Main Menu -->
     <string name="Links">Enlaces</string>
-    <string name="AboutExteraDescription">¡Cliente experimental de Telegram basado en la fuente oficial de Telegram!</string>
+    <string name="AboutBladeDescription">¡Cliente experimental de bladeGram basado en la fuente oficial de bladeGram!</string>
     <string name="Channel">Canal</string>
     <string name="Crowdin">Traducir</string>
     <string name="SourceCode">Código fuente</string>
@@ -40,7 +40,7 @@
     <string name="TabStylePills">Píldoras</string>
     <string name="TabCounter">Contador de Pestañas</string>
     <string name="HideAllChats">Ocultar la pestaña \"%1$s\"</string>
-    <string name="FoldersInfo">Los iconos se sincronizan con Telegram.</string>
+    <string name="FoldersInfo">Los iconos se sincronizan con bladeGram.</string>
     <string name="IconPack">Iconos</string>
     <string name="SolarIcons">Utilizar iconos “Solar”</string>
     <string name="ForceBlur">Forzar desenfoque</string>
@@ -64,7 +64,7 @@
     <!-- General -->
     <string name="CameraType">Tipo de cámara</string>
     <string name="CameraTypeSystem">Sistema</string>
-    <string name="DefaultCameraInfo">Usa la cámara integrada de Telegram.</string>
+    <string name="DefaultCameraInfo">Usa la cámara integrada de bladeGram.</string>
     <string name="CameraXInfo">CameraX solo es compatible con <![CDATA[<a href="https://developer.android.com/training/camerax/devices">dispositivos seleccionados</a>]]>, el soporte para efectos y lentes depende de tu fabricante.</string>
     <string name="SystemCameraInfo">Accede directamente a la cámara del sistema (no aplica para videomensajes).</string>
     <string name="PerformanceMode">Modo rendimiento</string>
@@ -80,7 +80,7 @@
     <string name="Profile">Perfil</string>
     <string name="HidePhoneNumber">Ocultar número de teléfono</string>
     <string name="ShowIdAndDc">Mostrar ID y DC</string>
-    <string name="ShowIdAndDcInfo">La API de Telegram muestra los IDs tal y como son, mientras que la Bot API añade un signo menos para los grupos y -100 para los supergrupos, grupos de difusión y canales.</string>
+    <string name="ShowIdAndDcInfo">La API de bladeGram muestra los IDs tal y como son, mientras que la Bot API añade un signo menos para los grupos y -100 para los supergrupos, grupos de difusión y canales.</string>
     <string name="ArchiveOnPull">Abrir archivados al desplegar</string>
     <string name="DisableUnarchiveSwipe">Desactivar el deslizado \"Desarchivar\"</string>
     <string name="DisableUnarchiveSwipeInfo">Deslizar hacia la izquierda no eliminará los chats archivados.</string>
@@ -117,7 +117,7 @@
     <string name="HidePhotoCounter">Ocultar contador de fotos</string>
     <string name="HidePhotoCounterInfo">El molesto contador de fotos en la parte superior de la pantalla desaparecerá de su vista.</string>
     <string name="HideCameraTile">Ocultar mosaico de cámara instantánea</string>
-    <string name="HideCameraTileInfo">El mosaico de la cámara será reemplazado por un botón flotante. Al presionar el botón se iniciará la cámara de Telegram, al mantenerlo presionado se iniciará la cámara del sistema.</string>
+    <string name="HideCameraTileInfo">El mosaico de la cámara será reemplazado por un botón flotante. Al presionar el botón se iniciará la cámara de bladeGram, al mantenerlo presionado se iniciará la cámara del sistema.</string>
     <string name="StaticZoom">Zoom estático</string>
     <string name="StaticZoomInfo">Al grabar videomensajes, el zoom no se restablecerá si sueltas los dedos.</string>
     <string name="VideoMessagesCamera">Cámara en videomensajes</string>
@@ -130,7 +130,7 @@
     <string name="RememberLastUsedCamera">Recordar última cámara usada</string>
     <string name="RememberLastUsedCameraInfo">Al grabar videomensajes, se seleccionará la última cámara usada.</string>
     <string name="PauseOnMinimize">Pausar automáticamente</string>
-    <string name="PauseOnMinimizeInfo">Pausa la reproducción de video cuando el dispositivo está bloqueado o exteraGram se minimiza.</string>
+    <string name="PauseOnMinimizeInfo">Pausa la reproducción de video cuando el dispositivo está bloqueado o bladeGram se minimiza.</string>
     <string name="DisablePlayback">Desactivar reproducción</string>
     <string name="DisablePlaybackInfo">Deshabilita la reproducción cuando se presiona el botón de volumen.</string>
     <!-- Boost -->
@@ -169,7 +169,7 @@
     <string name="Datacenter">Centro de datos</string>
     <!-- Other -->
     <string name="RestartRequired">Reinicie la app para que tenga efecto.</string>
-    <string name="ResetSettingsBulletin">Las preferencias de **exteraGram** han sido restablecidas.</string>
+    <string name="ResetSettingsBulletin">Las preferencias de **bladeGram** han sido restablecidas.</string>
     <string name="UserNotFound">Usuario con este ** ID ** no encontrado.</string>
     <string name="PhotoCopied">Foto copiada al portapapeles.</string>
     <string name="MutualContact">contacto mutuo</string>

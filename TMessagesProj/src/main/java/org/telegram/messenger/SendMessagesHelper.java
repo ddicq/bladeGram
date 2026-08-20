@@ -46,7 +46,7 @@ import androidx.annotation.UiThread;
 import androidx.collection.LongSparseArray;
 import androidx.core.view.inputmethod.InputContentInfoCompat;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.json.JSONObject;
 import org.telegram.messenger.audioinfo.AudioInfo;
@@ -6322,7 +6322,7 @@ public class SendMessagesHelper extends BaseController implements NotificationCe
     }
 
     public TLRPC.TL_photo generatePhotoSizes(TLRPC.TL_photo photo, String path, Uri imageUri) {
-        int max = ExteraConfig.getPhotosQuality();
+        int max = BladeConfig.getPhotosQuality();
         Bitmap bitmap = ImageLoader.loadBitmap(path, imageUri, max, max, true);
         if (bitmap == null && max == 2560) {
             bitmap = ImageLoader.loadBitmap(path, imageUri, 1280, 1280, true);
@@ -7282,7 +7282,7 @@ public class SendMessagesHelper extends BaseController implements NotificationCe
             File bigFile = FileLoader.getInstance(accountInstance.getCurrentAccount()).getPathToAttach(bigSize, false);
             boolean bigExists = bigFile.exists();
             if (!smallExists || !bigExists) {
-                int max = ExteraConfig.getPhotosQuality();
+                int max = BladeConfig.getPhotosQuality();
                 Bitmap bitmap = ImageLoader.loadBitmap(path, uri, max, max, true);
                 if (bitmap == null && max == 2560) {
                     bitmap = ImageLoader.loadBitmap(path, uri, 1280, 1280, true);

@@ -1,10 +1,10 @@
 // all credits to @Nekogram
 
-package com.exteragram.messenger.utils;
+package com.bladegram.messenger.utils;
 
 import androidx.core.util.Pair;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
@@ -106,7 +106,7 @@ public class FolderIcons {
     }
 
     public static int getPadding() {
-        if (ExteraConfig.tabIcons == 0) {
+        if (BladeConfig.tabIcons == 0) {
             return AndroidUtilities.dp(6);
         }
         return 0;
@@ -114,14 +114,14 @@ public class FolderIcons {
 
     public static int getTotalIconWidth() {
         int result = 0;
-        if (ExteraConfig.tabIcons != 1) {
+        if (BladeConfig.tabIcons != 1) {
             result = getIconWidth() + getPadding();
         }
         return result;
     }
 
     public static int getPaddingTab() {
-        if (ExteraConfig.tabIcons != 2 || ExteraConfig.tabStyle >= 3) {
+        if (BladeConfig.tabIcons != 2 || BladeConfig.tabStyle >= 3) {
             return AndroidUtilities.dp(32);
         }
         return AndroidUtilities.dp(16);

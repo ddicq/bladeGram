@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.preferences.components;
+package com.bladegram.messenger.preferences.components;
 
 import static org.telegram.messenger.AndroidUtilities.dp;
 import static org.telegram.messenger.AndroidUtilities.dpf2;
@@ -34,8 +34,8 @@ import android.widget.FrameLayout;
 
 import androidx.core.graphics.ColorUtils;
 
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.utils.FolderIcons;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.utils.FolderIcons;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
@@ -203,11 +203,11 @@ public class FoldersPreviewCell extends FrameLayout {
     }
 
     public void updateTabStyle(boolean animate) {
-        if (Objects.equals(currentStyle, ExteraConfig.tabStyle) && animate)
+        if (Objects.equals(currentStyle, BladeConfig.tabStyle) && animate)
             return;
 
         oldStyle = currentStyle;
-        currentStyle = ExteraConfig.tabStyle;
+        currentStyle = BladeConfig.tabStyle;
 
         if (animate) {
             ValueAnimator def = ValueAnimator.ofFloat(0f, 1f).setDuration(250);
@@ -283,7 +283,7 @@ public class FoldersPreviewCell extends FrameLayout {
     }
 
     public void updateTabTitle(boolean animate) {
-        float to = ExteraConfig.tabIcons != 2 ? 1 : 0;
+        float to = BladeConfig.tabIcons != 2 ? 1 : 0;
         if (to == titleProgress && animate)
             return;
         if (animate) {
@@ -301,7 +301,7 @@ public class FoldersPreviewCell extends FrameLayout {
     }
 
     public void updateTabIcons(boolean animate) {
-        float to = ExteraConfig.tabIcons != 1 ? 1 : 0;
+        float to = BladeConfig.tabIcons != 1 ? 1 : 0;
         if (to == iconProgress && animate)
             return;
         if (animate) {
@@ -319,7 +319,7 @@ public class FoldersPreviewCell extends FrameLayout {
     }
 
     public void updateTabCounter(boolean animate) {
-        float to = ExteraConfig.tabCounter ? 1 : 0;
+        float to = BladeConfig.tabCounter ? 1 : 0;
         if (to == counterProgress && animate)
             return;
         if (animate) {
@@ -337,11 +337,11 @@ public class FoldersPreviewCell extends FrameLayout {
     }
 
     private String getAllChatsTabName() {
-        return ExteraConfig.hideAllChats ? filters[6][0] : filters[0][0];
+        return BladeConfig.hideAllChats ? filters[6][0] : filters[0][0];
     }
 
     private String getAllChatsTabIcon() {
-        return ExteraConfig.hideAllChats ? filters[6][1] : filters[0][1];
+        return BladeConfig.hideAllChats ? filters[6][1] : filters[0][1];
     }
 
     @Override
@@ -353,7 +353,7 @@ public class FoldersPreviewCell extends FrameLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!ExteraConfig.disableDividers)
+        if (!BladeConfig.disableDividers)
             canvas.drawLine(LocaleController.isRTL ? 0 : dp(21), getMeasuredHeight() - 1, getMeasuredWidth() - (LocaleController.isRTL ? dp(21) : 0), getMeasuredHeight() - 1, Theme.dividerPaint);
     }
 

@@ -47,7 +47,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class ReactedUsersListView extends FrameLayout {
 
@@ -408,7 +408,7 @@ public class ReactedUsersListView extends FrameLayout {
             setLayoutParams(new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, AndroidUtilities.dp(ITEM_HEIGHT_DP)));
 
             avatarView = new BackupImageView(context);
-            avatarView.setRoundRadius(ExteraConfig.getAvatarCorners(34));
+            avatarView.setRoundRadius(BladeConfig.getAvatarCorners(34));
             addView(avatarView, LayoutHelper.createFrameRelatively(34, 34, Gravity.START | Gravity.CENTER_VERTICAL, 10, 0, 0, 0));
 
             titleView = new SimpleTextView(context) {

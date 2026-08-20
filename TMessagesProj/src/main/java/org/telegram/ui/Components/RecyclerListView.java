@@ -68,7 +68,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Objects;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 @SuppressWarnings("JavaReflectionMemberAccess")
 public class RecyclerListView extends RecyclerView {

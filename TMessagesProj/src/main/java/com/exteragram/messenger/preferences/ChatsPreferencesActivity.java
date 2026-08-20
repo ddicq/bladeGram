@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.preferences;
+package com.bladegram.messenger.preferences;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -21,13 +21,13 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.preferences.components.AltSeekbar;
-import com.exteragram.messenger.preferences.components.DoubleTapCell;
-import com.exteragram.messenger.preferences.components.StickerShapeCell;
-import com.exteragram.messenger.preferences.components.StickerSizePreviewCell;
-import com.exteragram.messenger.utils.LocaleUtils;
-import com.exteragram.messenger.utils.PopupUtils;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.preferences.components.AltSeekbar;
+import com.bladegram.messenger.preferences.components.DoubleTapCell;
+import com.bladegram.messenger.preferences.components.StickerShapeCell;
+import com.bladegram.messenger.preferences.components.StickerSizePreviewCell;
+import com.bladegram.messenger.utils.LocaleUtils;
+import com.bladegram.messenger.utils.PopupUtils;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
@@ -80,7 +80,7 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
     };
     private final int[] doubleTapIcons = new int[]{
             R.drawable.msg_block,
-            ExteraConfig.useSolarIcons ? R.drawable.msg_reactions : R.drawable.msg_saved_14,
+            BladeConfig.useSolarIcons ? R.drawable.msg_reactions : R.drawable.msg_saved_14,
             R.drawable.msg_reply,
             R.drawable.msg_copy,
             R.drawable.msg_forward,
@@ -163,13 +163,13 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
             setWillNotDraw(false);
 
             seekBar = new AltSeekbar(context, (float p) -> {
-                ExteraConfig.editor.putFloat("stickerSize", ExteraConfig.stickerSize = p).apply();
+                BladeConfig.editor.putFloat("stickerSize", BladeConfig.stickerSize = p).apply();
                 invalidate();
                 if (resetItem.getVisibility() != VISIBLE) {
                     AndroidUtilities.updateViewVisibilityAnimated(resetItem, true, 0.5f, true);
                 }
             }, startStickerSize, endStickerSize, LocaleController.getString("StickerSize", R.string.StickerSize), LocaleController.getString("StickerSizeLeft", R.string.StickerSizeLeft), LocaleController.getString("StickerSizeRight", R.string.StickerSizeRight));
-            seekBar.setProgress((ExteraConfig.stickerSize - startStickerSize) / (float) (endStickerSize - startStickerSize));
+            seekBar.setProgress((BladeConfig.stickerSize - startStickerSize) / (float) (endStickerSize - startStickerSize));
             addView(seekBar, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.WRAP_CONTENT));
 
             messagesCell = new StickerSizePreviewCell(context, ChatsPreferencesActivity.this, parentLayout);
@@ -202,14 +202,14 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
         ActionBarMenu menu = actionBar.createMenu();
         resetItem = menu.addItem(0, R.drawable.msg_reset);
         resetItem.setContentDescription(LocaleController.getString("Reset", R.string.Reset));
-        resetItem.setVisibility(ExteraConfig.stickerSize != 14.0f ? View.VISIBLE : View.GONE);
+        resetItem.setVisibility(BladeConfig.stickerSize != 14.0f ? View.VISIBLE : View.GONE);
         resetItem.setTag(null);
         resetItem.setOnClickListener(v -> {
             AndroidUtilities.updateViewVisibilityAnimated(resetItem, false, 0.5f, true);
-            ValueAnimator animator = ValueAnimator.ofFloat(ExteraConfig.stickerSize, 14.0f);
+            ValueAnimator animator = ValueAnimator.ofFloat(BladeConfig.stickerSize, 14.0f);
             animator.setDuration(200);
             animator.addUpdateListener(valueAnimator -> {
-                ExteraConfig.editor.putFloat("stickerSize", ExteraConfig.stickerSize = (Float) valueAnimator.getAnimatedValue()).apply();
+                BladeConfig.editor.putFloat("stickerSize", BladeConfig.stickerSize = (Float) valueAnimator.getAnimatedValue()).apply();
                 stickerSizeCell.invalidate();
             });
             animator.start();
@@ -260,7 +260,7 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
         doubleTapRow = newRow();
         doubleTapActionRow = newRow();
         doubleTapActionOutOwnerRow = newRow();
-        doubleTapReactionRow = ExteraConfig.doubleTapAction == 1 || ExteraConfig.doubleTapActionOutOwner == 1 ? newRow() : -1;
+        doubleTapReactionRow = BladeConfig.doubleTapAction == 1 || BladeConfig.doubleTapActionOutOwner == 1 ? newRow() : -1;
         doubleTapDividerRow = newRow();
 
         chatsHeaderRow = newRow();
@@ -312,7 +312,7 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
         videosHeaderRow = newRow();
         doubleTapSeekDurationRow = newRow();
         videoMessagesCameraRow = newRow();
-        rememberLastUsedCameraRow = ExteraConfig.videoMessagesCamera != 2 ? newRow() : -1;
+        rememberLastUsedCameraRow = BladeConfig.videoMessagesCamera != 2 ? newRow() : -1;
         staticZoomRow = newRow();
         pauseOnMinimizeRow = newRow();
         disablePlaybackRow = newRow();
@@ -322,83 +322,83 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
     @Override
     protected void onItemClick(View view, int position, float x, float y) {
         if (position == hideStickerTimeRow) {
-            ExteraConfig.editor.putBoolean("hideStickerTime", ExteraConfig.hideStickerTime ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.hideStickerTime);
+            BladeConfig.editor.putBoolean("hideStickerTime", BladeConfig.hideStickerTime ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.hideStickerTime);
             stickerSizeCell.invalidate();
         } else if (position == unlimitedRecentStickersRow) {
-            ExteraConfig.editor.putBoolean("unlimitedRecentStickers", ExteraConfig.unlimitedRecentStickers ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.unlimitedRecentStickers);
+            BladeConfig.editor.putBoolean("unlimitedRecentStickers", BladeConfig.unlimitedRecentStickers ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.unlimitedRecentStickers);
         } else if (position == hideCategoriesRow) {
-            ExteraConfig.editor.putBoolean("hideCategories", ExteraConfig.hideCategories ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.hideCategories);
+            BladeConfig.editor.putBoolean("hideCategories", BladeConfig.hideCategories ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.hideCategories);
         } else if (position == addCommaAfterMentionRow) {
-            ExteraConfig.editor.putBoolean("addCommaAfterMention", ExteraConfig.addCommaAfterMention ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.addCommaAfterMention);
+            BladeConfig.editor.putBoolean("addCommaAfterMention", BladeConfig.addCommaAfterMention ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.addCommaAfterMention);
         } else if (position == hideKeyboardOnScrollRow) {
-            ExteraConfig.editor.putBoolean("hideKeyboardOnScroll", ExteraConfig.hideKeyboardOnScroll ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.hideKeyboardOnScroll);
+            BladeConfig.editor.putBoolean("hideKeyboardOnScroll", BladeConfig.hideKeyboardOnScroll ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.hideKeyboardOnScroll);
         } else if (position == hideShareButtonRow) {
-            ExteraConfig.editor.putBoolean("hideShareButton", ExteraConfig.hideShareButton ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.hideShareButton);
+            BladeConfig.editor.putBoolean("hideShareButton", BladeConfig.hideShareButton ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.hideShareButton);
         } else if (position == bottomButtonRow) {
             if (getParentActivity() == null) {
                 return;
             }
-            PopupUtils.showDialog(bottomButton, LocaleController.getString("BottomButton", R.string.BottomButton), ExteraConfig.bottomButton, getContext(), which -> {
-                ExteraConfig.editor.putInt("bottomButton", ExteraConfig.bottomButton = which).apply();
+            PopupUtils.showDialog(bottomButton, LocaleController.getString("BottomButton", R.string.BottomButton), BladeConfig.bottomButton, getContext(), which -> {
+                BladeConfig.editor.putInt("bottomButton", BladeConfig.bottomButton = which).apply();
                 listAdapter.notifyItemChanged(bottomButtonRow, payload);
             });
         } else if (position == disableJumpToNextChannelRow) {
-            ExteraConfig.editor.putBoolean("disableJumpToNextChannel", ExteraConfig.disableJumpToNextChannel ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.disableJumpToNextChannel);
+            BladeConfig.editor.putBoolean("disableJumpToNextChannel", BladeConfig.disableJumpToNextChannel ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.disableJumpToNextChannel);
             parentLayout.rebuildAllFragmentViews(false, false);
         } else if (position == showActionTimestampsRow) {
-            ExteraConfig.editor.putBoolean("showActionTimestamps", ExteraConfig.showActionTimestamps ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.showActionTimestamps);
+            BladeConfig.editor.putBoolean("showActionTimestamps", BladeConfig.showActionTimestamps ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.showActionTimestamps);
             listAdapter.notifyItemChanged(messagesDividerRow);
             parentLayout.rebuildAllFragmentViews(false, false);
         } else if (position == staticZoomRow) {
-            ExteraConfig.editor.putBoolean("staticZoom", ExteraConfig.staticZoom ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.staticZoom);
+            BladeConfig.editor.putBoolean("staticZoom", BladeConfig.staticZoom ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.staticZoom);
         } else if (position == videoMessagesCameraRow) {
             if (getParentActivity() == null) {
                 return;
             }
-            PopupUtils.showDialog(videoMessagesCamera, LocaleController.getString("VideoMessagesCamera", R.string.VideoMessagesCamera), ExteraConfig.videoMessagesCamera, getContext(), which -> {
-                int old = ExteraConfig.videoMessagesCamera;
-                ExteraConfig.editor.putInt("videoMessagesCamera", ExteraConfig.videoMessagesCamera = which).apply();
+            PopupUtils.showDialog(videoMessagesCamera, LocaleController.getString("VideoMessagesCamera", R.string.VideoMessagesCamera), BladeConfig.videoMessagesCamera, getContext(), which -> {
+                int old = BladeConfig.videoMessagesCamera;
+                BladeConfig.editor.putInt("videoMessagesCamera", BladeConfig.videoMessagesCamera = which).apply();
                 if (old == which) {
                     return;
                 }
-                if (old == 2 && ExteraConfig.videoMessagesCamera != 2) {
+                if (old == 2 && BladeConfig.videoMessagesCamera != 2) {
                     updateRowsId();
                     listAdapter.notifyItemInserted(rememberLastUsedCameraRow);
-                } else if (old != 2 && ExteraConfig.videoMessagesCamera == 2) {
+                } else if (old != 2 && BladeConfig.videoMessagesCamera == 2) {
                     listAdapter.notifyItemRemoved(rememberLastUsedCameraRow);
                     updateRowsId();
                 }
                 listAdapter.notifyItemChanged(videoMessagesCameraRow, payload);
             });
         } else if (position == rememberLastUsedCameraRow) {
-            ExteraConfig.editor.putBoolean("rememberLastUsedCamera", ExteraConfig.rememberLastUsedCamera ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.rememberLastUsedCamera);
+            BladeConfig.editor.putBoolean("rememberLastUsedCamera", BladeConfig.rememberLastUsedCamera ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.rememberLastUsedCamera);
         } else if (position == hideCameraTileRow) {
-            ExteraConfig.editor.putBoolean("hideCameraTile", ExteraConfig.hideCameraTile ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.hideCameraTile);
+            BladeConfig.editor.putBoolean("hideCameraTile", BladeConfig.hideCameraTile ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.hideCameraTile);
         } else if (position == pauseOnMinimizeRow) {
-            ExteraConfig.editor.putBoolean("pauseOnMinimize", ExteraConfig.pauseOnMinimize ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.pauseOnMinimize);
+            BladeConfig.editor.putBoolean("pauseOnMinimize", BladeConfig.pauseOnMinimize ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.pauseOnMinimize);
         } else if (position == disablePlaybackRow) {
-            ExteraConfig.editor.putBoolean("disablePlayback", ExteraConfig.disablePlayback ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.disablePlayback);
+            BladeConfig.editor.putBoolean("disablePlayback", BladeConfig.disablePlayback ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.disablePlayback);
             showBulletin();
         } else if (position == doubleTapSeekDurationRow) {
             if (getParentActivity() == null) {
                 return;
             }
-            PopupUtils.showDialog(doubleTapSeekDuration, LocaleController.getString("DoubleTapSeekDuration", R.string.DoubleTapSeekDuration), ExteraConfig.doubleTapSeekDuration, getContext(), which -> {
-                int old = ExteraConfig.doubleTapSeekDuration;
-                ExteraConfig.editor.putInt("doubleTapSeekDuration", ExteraConfig.doubleTapSeekDuration = which).apply();
+            PopupUtils.showDialog(doubleTapSeekDuration, LocaleController.getString("DoubleTapSeekDuration", R.string.DoubleTapSeekDuration), BladeConfig.doubleTapSeekDuration, getContext(), which -> {
+                int old = BladeConfig.doubleTapSeekDuration;
+                BladeConfig.editor.putInt("doubleTapSeekDuration", BladeConfig.doubleTapSeekDuration = which).apply();
                 if (old == which) {
                     return;
                 }
@@ -407,37 +407,37 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
             });
 
         } else if (position == hideCounterRow) {
-            ExteraConfig.editor.putBoolean("hidePhotoCounter", ExteraConfig.hidePhotoCounter ^= true).apply();
-            ((TextCheckCell) view).setChecked(ExteraConfig.hidePhotoCounter);
+            BladeConfig.editor.putBoolean("hidePhotoCounter", BladeConfig.hidePhotoCounter ^= true).apply();
+            ((TextCheckCell) view).setChecked(BladeConfig.hidePhotoCounter);
             parentLayout.rebuildAllFragmentViews(false, false);
         } else if (position == doubleTapActionRow || position == doubleTapActionOutOwnerRow) {
             if (getParentActivity() == null) {
                 return;
             }
-            PopupUtils.showDialog(doubleTapActions, doubleTapIcons, LocaleController.getString("DoubleTap", R.string.DoubleTap), position == doubleTapActionRow ? ExteraConfig.doubleTapAction : ExteraConfig.doubleTapActionOutOwner, getContext(), i -> {
+            PopupUtils.showDialog(doubleTapActions, doubleTapIcons, LocaleController.getString("DoubleTap", R.string.DoubleTap), position == doubleTapActionRow ? BladeConfig.doubleTapAction : BladeConfig.doubleTapActionOutOwner, getContext(), i -> {
                 if (position == doubleTapActionOutOwnerRow) {
-                    int old = ExteraConfig.doubleTapActionOutOwner;
+                    int old = BladeConfig.doubleTapActionOutOwner;
                     if (old == i)
                         return;
                     doubleTapCell.updateIcons(2, true);
-                    ExteraConfig.editor.putInt("doubleTapActionOutOwner", ExteraConfig.doubleTapActionOutOwner = i).apply();
-                    if (old == 1 && ExteraConfig.doubleTapAction != 1) {
+                    BladeConfig.editor.putInt("doubleTapActionOutOwner", BladeConfig.doubleTapActionOutOwner = i).apply();
+                    if (old == 1 && BladeConfig.doubleTapAction != 1) {
                         listAdapter.notifyItemRemoved(doubleTapReactionRow);
                         updateRowsId();
-                    } else if (i == 1 && ExteraConfig.doubleTapAction != 1) {
+                    } else if (i == 1 && BladeConfig.doubleTapAction != 1) {
                         updateRowsId();
                         listAdapter.notifyItemInserted(doubleTapReactionRow);
                     }
                     listAdapter.notifyItemChanged(doubleTapActionOutOwnerRow, payload);
                 } else {
-                    int old = ExteraConfig.doubleTapAction;
+                    int old = BladeConfig.doubleTapAction;
                     if (old == i) return;
                     doubleTapCell.updateIcons(1, true);
-                    ExteraConfig.editor.putInt("doubleTapAction", ExteraConfig.doubleTapAction = i).apply();
-                    if (old == 1 && ExteraConfig.doubleTapActionOutOwner != 1) {
+                    BladeConfig.editor.putInt("doubleTapAction", BladeConfig.doubleTapAction = i).apply();
+                    if (old == 1 && BladeConfig.doubleTapActionOutOwner != 1) {
                         listAdapter.notifyItemRemoved(doubleTapReactionRow);
                         updateRowsId();
-                    } else if (i == 1 && ExteraConfig.doubleTapActionOutOwner != 1) {
+                    } else if (i == 1 && BladeConfig.doubleTapActionOutOwner != 1) {
                         updateRowsId();
                         listAdapter.notifyItemInserted(doubleTapReactionRow);
                     }
@@ -470,37 +470,37 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
             }
         } else if (position >= permissionsRow && position <= recentActionsRow) {
             if (position == permissionsRow) {
-                ExteraConfig.editor.putBoolean("permissionsShortcut", ExteraConfig.permissionsShortcut ^= true).apply();
+                BladeConfig.editor.putBoolean("permissionsShortcut", BladeConfig.permissionsShortcut ^= true).apply();
                 listAdapter.notifyItemChanged(permissionsRow, payload);
             } else if (position == administratorsRow) {
-                ExteraConfig.editor.putBoolean("administratorsShortcut", ExteraConfig.administratorsShortcut ^= true).apply();
+                BladeConfig.editor.putBoolean("administratorsShortcut", BladeConfig.administratorsShortcut ^= true).apply();
                 listAdapter.notifyItemChanged(administratorsRow, payload);
             } else if (position == membersRow) {
-                ExteraConfig.editor.putBoolean("membersShortcut", ExteraConfig.membersShortcut ^= true).apply();
+                BladeConfig.editor.putBoolean("membersShortcut", BladeConfig.membersShortcut ^= true).apply();
                 listAdapter.notifyItemChanged(membersRow, payload);
             } else if (position == recentActionsRow) {
-                ExteraConfig.editor.putBoolean("recentActionsShortcut", ExteraConfig.recentActionsShortcut ^= true).apply();
+                BladeConfig.editor.putBoolean("recentActionsShortcut", BladeConfig.recentActionsShortcut ^= true).apply();
                 listAdapter.notifyItemChanged(recentActionsRow, payload);
             }
             listAdapter.notifyItemChanged(adminShortcutsRow, payload);
         } else if (position >= copyPhotoRow && position <= detailsRow) {
             if (position == copyPhotoRow) {
-                ExteraConfig.editor.putBoolean("showCopyPhotoButton", ExteraConfig.showCopyPhotoButton ^= true).apply();
+                BladeConfig.editor.putBoolean("showCopyPhotoButton", BladeConfig.showCopyPhotoButton ^= true).apply();
                 listAdapter.notifyItemChanged(copyPhotoRow, payload);
             } else if (position == clearRow) {
-                ExteraConfig.editor.putBoolean("showClearButton", ExteraConfig.showClearButton ^= true).apply();
+                BladeConfig.editor.putBoolean("showClearButton", BladeConfig.showClearButton ^= true).apply();
                 listAdapter.notifyItemChanged(clearRow, payload);
             } else if (position == saveRow) {
-                ExteraConfig.editor.putBoolean("showSaveMessageButton", ExteraConfig.showSaveMessageButton ^= true).apply();
+                BladeConfig.editor.putBoolean("showSaveMessageButton", BladeConfig.showSaveMessageButton ^= true).apply();
                 listAdapter.notifyItemChanged(saveRow, payload);
             } else if (position == reportRow) {
-                ExteraConfig.editor.putBoolean("showReportButton", ExteraConfig.showReportButton ^= true).apply();
+                BladeConfig.editor.putBoolean("showReportButton", BladeConfig.showReportButton ^= true).apply();
                 listAdapter.notifyItemChanged(reportRow, payload);
             } else if (position == historyRow) {
-                ExteraConfig.editor.putBoolean("showHistoryButton", ExteraConfig.showHistoryButton ^= true).apply();
+                BladeConfig.editor.putBoolean("showHistoryButton", BladeConfig.showHistoryButton ^= true).apply();
                 listAdapter.notifyItemChanged(historyRow, payload);
             } else if (position == detailsRow) {
-                ExteraConfig.editor.putBoolean("showDetailsButton", ExteraConfig.showDetailsButton ^= true).apply();
+                BladeConfig.editor.putBoolean("showDetailsButton", BladeConfig.showDetailsButton ^= true).apply();
                 listAdapter.notifyItemChanged(detailsRow, payload);
             }
             listAdapter.notifyItemChanged(messageMenuRow, payload);
@@ -518,49 +518,49 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
     }
 
     private void setShortcutsEnabled(boolean enabled) {
-        ExteraConfig.editor.putBoolean("permissionsShortcut", ExteraConfig.permissionsShortcut = enabled).apply();
-        ExteraConfig.editor.putBoolean("administratorsShortcut", ExteraConfig.administratorsShortcut = enabled).apply();
-        ExteraConfig.editor.putBoolean("membersShortcut", ExteraConfig.membersShortcut = enabled).apply();
-        ExteraConfig.editor.putBoolean("recentActionsShortcut", ExteraConfig.recentActionsShortcut = enabled).apply();
+        BladeConfig.editor.putBoolean("permissionsShortcut", BladeConfig.permissionsShortcut = enabled).apply();
+        BladeConfig.editor.putBoolean("administratorsShortcut", BladeConfig.administratorsShortcut = enabled).apply();
+        BladeConfig.editor.putBoolean("membersShortcut", BladeConfig.membersShortcut = enabled).apply();
+        BladeConfig.editor.putBoolean("recentActionsShortcut", BladeConfig.recentActionsShortcut = enabled).apply();
         AndroidUtilities.updateVisibleRows(listView);
     }
 
     private int getShortcutsSelectedCount() {
         int i = 0;
-        if (ExteraConfig.permissionsShortcut)
+        if (BladeConfig.permissionsShortcut)
             i++;
-        if (ExteraConfig.administratorsShortcut)
+        if (BladeConfig.administratorsShortcut)
             i++;
-        if (ExteraConfig.membersShortcut)
+        if (BladeConfig.membersShortcut)
             i++;
-        if (ExteraConfig.recentActionsShortcut)
+        if (BladeConfig.recentActionsShortcut)
             i++;
         return i;
     }
 
     private void setMessageMenuEnabled(boolean enabled) {
-        ExteraConfig.editor.putBoolean("showCopyPhotoButton", ExteraConfig.showCopyPhotoButton = enabled).apply();
-        ExteraConfig.editor.putBoolean("showClearButton", ExteraConfig.showClearButton = enabled).apply();
-        ExteraConfig.editor.putBoolean("showSaveMessageButton", ExteraConfig.showSaveMessageButton = enabled).apply();
-        ExteraConfig.editor.putBoolean("showReportButton", ExteraConfig.showReportButton = enabled).apply();
-        ExteraConfig.editor.putBoolean("showHistoryButton", ExteraConfig.showHistoryButton = enabled).apply();
-        ExteraConfig.editor.putBoolean("showDetailsButton", ExteraConfig.showDetailsButton = enabled).apply();
+        BladeConfig.editor.putBoolean("showCopyPhotoButton", BladeConfig.showCopyPhotoButton = enabled).apply();
+        BladeConfig.editor.putBoolean("showClearButton", BladeConfig.showClearButton = enabled).apply();
+        BladeConfig.editor.putBoolean("showSaveMessageButton", BladeConfig.showSaveMessageButton = enabled).apply();
+        BladeConfig.editor.putBoolean("showReportButton", BladeConfig.showReportButton = enabled).apply();
+        BladeConfig.editor.putBoolean("showHistoryButton", BladeConfig.showHistoryButton = enabled).apply();
+        BladeConfig.editor.putBoolean("showDetailsButton", BladeConfig.showDetailsButton = enabled).apply();
         AndroidUtilities.updateVisibleRows(listView);
     }
 
     private int getMessageMenuSelectedCount() {
         int i = 0;
-        if (ExteraConfig.showCopyPhotoButton)
+        if (BladeConfig.showCopyPhotoButton)
             i++;
-        if (ExteraConfig.showSaveMessageButton)
+        if (BladeConfig.showSaveMessageButton)
             i++;
-        if (ExteraConfig.showClearButton)
+        if (BladeConfig.showClearButton)
             i++;
-        if (ExteraConfig.showReportButton)
+        if (BladeConfig.showReportButton)
             i++;
-        if (ExteraConfig.showHistoryButton)
+        if (BladeConfig.showHistoryButton)
             i++;
-        if (ExteraConfig.showDetailsButton)
+        if (BladeConfig.showDetailsButton)
             i++;
         return i;
     }
@@ -636,47 +636,47 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
                     TextCheckCell textCheckCell = (TextCheckCell) holder.itemView;
                     textCheckCell.setEnabled(true, null);
                     if (position == hideStickerTimeRow) {
-                        textCheckCell.setTextAndCheck(LocaleController.getString("StickerTime", R.string.StickerTime), ExteraConfig.hideStickerTime, true);
+                        textCheckCell.setTextAndCheck(LocaleController.getString("StickerTime", R.string.StickerTime), BladeConfig.hideStickerTime, true);
                     } else if (position == unlimitedRecentStickersRow) {
-                        textCheckCell.setTextAndCheck(LocaleController.getString("UnlimitedRecentStickers", R.string.UnlimitedRecentStickers), ExteraConfig.unlimitedRecentStickers, true);
+                        textCheckCell.setTextAndCheck(LocaleController.getString("UnlimitedRecentStickers", R.string.UnlimitedRecentStickers), BladeConfig.unlimitedRecentStickers, true);
                     } else if (position == hideCategoriesRow) {
-                        textCheckCell.setTextAndCheck(LocaleController.getString("HideCategories", R.string.HideCategories), ExteraConfig.hideCategories, false);
+                        textCheckCell.setTextAndCheck(LocaleController.getString("HideCategories", R.string.HideCategories), BladeConfig.hideCategories, false);
                     } else if (position == addCommaAfterMentionRow) {
-                        textCheckCell.setTextAndCheck(LocaleController.getString("AddCommaAfterMention", R.string.AddCommaAfterMention), ExteraConfig.addCommaAfterMention, false);
+                        textCheckCell.setTextAndCheck(LocaleController.getString("AddCommaAfterMention", R.string.AddCommaAfterMention), BladeConfig.addCommaAfterMention, false);
                     } else if (position == hideKeyboardOnScrollRow) {
-                        textCheckCell.setTextAndCheck(LocaleController.getString("HideKeyboardOnScroll", R.string.HideKeyboardOnScroll), ExteraConfig.hideKeyboardOnScroll, true);
+                        textCheckCell.setTextAndCheck(LocaleController.getString("HideKeyboardOnScroll", R.string.HideKeyboardOnScroll), BladeConfig.hideKeyboardOnScroll, true);
                     } else if (position == hideShareButtonRow) {
-                        textCheckCell.setTextAndCheck(LocaleController.formatString("HideShareButton", R.string.HideShareButton, LocaleController.getString("ShareFile", R.string.ShareFile)), ExteraConfig.hideShareButton, true);
+                        textCheckCell.setTextAndCheck(LocaleController.formatString("HideShareButton", R.string.HideShareButton, LocaleController.getString("ShareFile", R.string.ShareFile)), BladeConfig.hideShareButton, true);
                     } else if (position == disableJumpToNextChannelRow) {
-                        textCheckCell.setTextAndCheck(LocaleController.getString("DisableJumpToNextChannel", R.string.DisableJumpToNextChannel), ExteraConfig.disableJumpToNextChannel, true);
+                        textCheckCell.setTextAndCheck(LocaleController.getString("DisableJumpToNextChannel", R.string.DisableJumpToNextChannel), BladeConfig.disableJumpToNextChannel, true);
                     } else if (position == showActionTimestampsRow) {
-                        textCheckCell.setTextAndCheck(LocaleController.getString("ShowActionTimestamps", R.string.ShowActionTimestamps), ExteraConfig.showActionTimestamps, false);
+                        textCheckCell.setTextAndCheck(LocaleController.getString("ShowActionTimestamps", R.string.ShowActionTimestamps), BladeConfig.showActionTimestamps, false);
                     } else if (position == staticZoomRow) {
-                        textCheckCell.setTextAndValueAndCheck(LocaleController.getString("StaticZoom", R.string.StaticZoom), LocaleController.getString("StaticZoomInfo", R.string.StaticZoomInfo), ExteraConfig.staticZoom, true, true);
+                        textCheckCell.setTextAndValueAndCheck(LocaleController.getString("StaticZoom", R.string.StaticZoom), LocaleController.getString("StaticZoomInfo", R.string.StaticZoomInfo), BladeConfig.staticZoom, true, true);
                     } else if (position == rememberLastUsedCameraRow) {
-                        textCheckCell.setTextAndValueAndCheck(LocaleController.getString("RememberLastUsedCamera", R.string.RememberLastUsedCamera), LocaleController.getString("RememberLastUsedCameraInfo", R.string.RememberLastUsedCameraInfo), ExteraConfig.rememberLastUsedCamera, true, true);
+                        textCheckCell.setTextAndValueAndCheck(LocaleController.getString("RememberLastUsedCamera", R.string.RememberLastUsedCamera), LocaleController.getString("RememberLastUsedCameraInfo", R.string.RememberLastUsedCameraInfo), BladeConfig.rememberLastUsedCamera, true, true);
                     } else if (position == hideCameraTileRow) {
-                        textCheckCell.setTextAndCheck(LocaleController.getString("HideCameraTile", R.string.HideCameraTile), ExteraConfig.hideCameraTile, false);
+                        textCheckCell.setTextAndCheck(LocaleController.getString("HideCameraTile", R.string.HideCameraTile), BladeConfig.hideCameraTile, false);
                     } else if (position == pauseOnMinimizeRow) {
-                        textCheckCell.setTextAndValueAndCheck(LocaleController.getString("PauseOnMinimize", R.string.PauseOnMinimize), LocaleController.getString("PauseOnMinimizeInfo", R.string.PauseOnMinimizeInfo), ExteraConfig.pauseOnMinimize, true, true);
+                        textCheckCell.setTextAndValueAndCheck(LocaleController.getString("PauseOnMinimize", R.string.PauseOnMinimize), LocaleController.getString("PauseOnMinimizeInfo", R.string.PauseOnMinimizeInfo), BladeConfig.pauseOnMinimize, true, true);
                     } else if (position == disablePlaybackRow) {
-                        textCheckCell.setTextAndCheck(LocaleController.getString("DisablePlayback", R.string.DisablePlayback), ExteraConfig.disablePlayback, false);
+                        textCheckCell.setTextAndCheck(LocaleController.getString("DisablePlayback", R.string.DisablePlayback), BladeConfig.disablePlayback, false);
                     } else if (position == hideCounterRow) {
-                        textCheckCell.setTextAndValueAndCheck(LocaleController.getString("HidePhotoCounter", R.string.HidePhotoCounter), LocaleController.getString("HidePhotoCounterInfo", R.string.HidePhotoCounterInfo), ExteraConfig.hidePhotoCounter, true, true);
+                        textCheckCell.setTextAndValueAndCheck(LocaleController.getString("HidePhotoCounter", R.string.HidePhotoCounter), LocaleController.getString("HidePhotoCounterInfo", R.string.HidePhotoCounterInfo), BladeConfig.hidePhotoCounter, true, true);
                     }
                     break;
                 case 7:
                     TextSettingsCell textSettingsCell = (TextSettingsCell) holder.itemView;
                     if (position == doubleTapActionOutOwnerRow) {
-                        textSettingsCell.setTextAndValue(LocaleController.getString("DoubleTapOutgoing", R.string.DoubleTapOutgoing), doubleTapActions[ExteraConfig.doubleTapActionOutOwner], payload, doubleTapReactionRow != -1);
+                        textSettingsCell.setTextAndValue(LocaleController.getString("DoubleTapOutgoing", R.string.DoubleTapOutgoing), doubleTapActions[BladeConfig.doubleTapActionOutOwner], payload, doubleTapReactionRow != -1);
                     } else if (position == doubleTapActionRow) {
-                        textSettingsCell.setTextAndValue(LocaleController.getString("DoubleTapIncoming", R.string.DoubleTapIncoming), doubleTapActions[ExteraConfig.doubleTapAction], payload, true);
+                        textSettingsCell.setTextAndValue(LocaleController.getString("DoubleTapIncoming", R.string.DoubleTapIncoming), doubleTapActions[BladeConfig.doubleTapAction], payload, true);
                     } else if (position == bottomButtonRow) {
-                        textSettingsCell.setTextAndValue(LocaleController.getString("BottomButton", R.string.BottomButton), LocaleUtils.capitalize((String) bottomButton[ExteraConfig.bottomButton]), payload, true);
+                        textSettingsCell.setTextAndValue(LocaleController.getString("BottomButton", R.string.BottomButton), LocaleUtils.capitalize((String) bottomButton[BladeConfig.bottomButton]), payload, true);
                     } else if (position == videoMessagesCameraRow) {
-                        textSettingsCell.setTextAndValue(LocaleController.getString("VideoMessagesCamera", R.string.VideoMessagesCamera), videoMessagesCamera[ExteraConfig.videoMessagesCamera], payload, true);
+                        textSettingsCell.setTextAndValue(LocaleController.getString("VideoMessagesCamera", R.string.VideoMessagesCamera), videoMessagesCamera[BladeConfig.videoMessagesCamera], payload, true);
                     } else if (position == doubleTapSeekDurationRow) {
-                        textSettingsCell.setTextAndValue(LocaleController.getString("DoubleTapSeekDuration", R.string.DoubleTapSeekDuration), doubleTapSeekDuration[ExteraConfig.doubleTapSeekDuration], payload, true);
+                        textSettingsCell.setTextAndValue(LocaleController.getString("DoubleTapSeekDuration", R.string.DoubleTapSeekDuration), doubleTapSeekDuration[BladeConfig.doubleTapSeekDuration], payload, true);
                     }
                     break;
                 case 8:
@@ -695,7 +695,7 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
                         cell.getTextView().setMovementMethod(null);
                         String value = LocaleController.getString("EventLogGroupJoined", R.string.EventLogGroupJoined);
                         value = value.replace("un1", "**immat0x1**");
-                        if (ExteraConfig.showActionTimestamps)
+                        if (BladeConfig.showActionTimestamps)
                             value += " " + LocaleController.formatString("TodayAtFormatted", R.string.TodayAtFormatted, "12:34");
                         cell.setText(AndroidUtilities.replaceTags(value));
                     }
@@ -704,8 +704,8 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
                     SlideChooseView slide = (SlideChooseView) holder.itemView;
                     if (position == photosQualityChooserRow) {
                         slide.setNeedDivider(true);
-                        slide.setCallback(index -> ExteraConfig.editor.putInt("sendPhotosQuality", ExteraConfig.sendPhotosQuality = index).apply());
-                        slide.setOptions(ExteraConfig.sendPhotosQuality, "800px", "1280px", "2560px");
+                        slide.setCallback(index -> BladeConfig.editor.putInt("sendPhotosQuality", BladeConfig.sendPhotosQuality = index).apply());
+                        slide.setOptions(BladeConfig.sendPhotosQuality, "800px", "1280px", "2560px");
                     }
                     break;
                 case 18:
@@ -733,25 +733,25 @@ public class ChatsPreferencesActivity extends BasePreferencesActivity implements
                 case 19:
                     CheckBoxCell checkBoxCell = (CheckBoxCell) holder.itemView;
                     if (position == permissionsRow) {
-                        checkBoxCell.setText(LocaleController.getString("ChannelPermissions", R.string.ChannelPermissions), "", ExteraConfig.permissionsShortcut, true, true);
+                        checkBoxCell.setText(LocaleController.getString("ChannelPermissions", R.string.ChannelPermissions), "", BladeConfig.permissionsShortcut, true, true);
                     } else if (position == administratorsRow) {
-                        checkBoxCell.setText(LocaleController.getString("ChannelAdministrators", R.string.ChannelAdministrators), "", ExteraConfig.administratorsShortcut, true, true);
+                        checkBoxCell.setText(LocaleController.getString("ChannelAdministrators", R.string.ChannelAdministrators), "", BladeConfig.administratorsShortcut, true, true);
                     } else if (position == membersRow) {
-                        checkBoxCell.setText(LocaleController.getString("ChannelMembers", R.string.ChannelMembers), "", ExteraConfig.membersShortcut, true, true);
+                        checkBoxCell.setText(LocaleController.getString("ChannelMembers", R.string.ChannelMembers), "", BladeConfig.membersShortcut, true, true);
                     } else if (position == recentActionsRow) {
-                        checkBoxCell.setText(LocaleController.getString("EventLog", R.string.EventLog), "", ExteraConfig.recentActionsShortcut, true, true);
+                        checkBoxCell.setText(LocaleController.getString("EventLog", R.string.EventLog), "", BladeConfig.recentActionsShortcut, true, true);
                     } else if (position == copyPhotoRow) {
-                        checkBoxCell.setText(LocaleController.getString("CopyPhoto", R.string.CopyPhoto), "", ExteraConfig.showCopyPhotoButton, true, true);
+                        checkBoxCell.setText(LocaleController.getString("CopyPhoto", R.string.CopyPhoto), "", BladeConfig.showCopyPhotoButton, true, true);
                     } else if (position == clearRow) {
-                        checkBoxCell.setText(LocaleController.getString("Clear", R.string.Clear), "", ExteraConfig.showClearButton, true, true);
+                        checkBoxCell.setText(LocaleController.getString("Clear", R.string.Clear), "", BladeConfig.showClearButton, true, true);
                     } else if (position == saveRow) {
-                        checkBoxCell.setText(LocaleController.getString("Save", R.string.Save), "", ExteraConfig.showSaveMessageButton, true, true);
+                        checkBoxCell.setText(LocaleController.getString("Save", R.string.Save), "", BladeConfig.showSaveMessageButton, true, true);
                     } else if (position == reportRow) {
-                        checkBoxCell.setText(LocaleController.getString("ReportChat", R.string.ReportChat), "", ExteraConfig.showReportButton, true, true);
+                        checkBoxCell.setText(LocaleController.getString("ReportChat", R.string.ReportChat), "", BladeConfig.showReportButton, true, true);
                     } else if (position == historyRow) {
-                        checkBoxCell.setText(LocaleController.getString("MessageHistory", R.string.MessageHistory), "", ExteraConfig.showHistoryButton, true, true);
+                        checkBoxCell.setText(LocaleController.getString("MessageHistory", R.string.MessageHistory), "", BladeConfig.showHistoryButton, true, true);
                     } else if (position == detailsRow) {
-                        checkBoxCell.setText(LocaleController.getString("Details", R.string.Details), "", ExteraConfig.showDetailsButton, true, true);
+                        checkBoxCell.setText(LocaleController.getString("Details", R.string.Details), "", BladeConfig.showDetailsButton, true, true);
                     }
                     checkBoxCell.setPad(1);
                     break;

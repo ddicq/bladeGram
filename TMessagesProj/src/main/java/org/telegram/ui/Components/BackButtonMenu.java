@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ImageLocation;
@@ -91,7 +91,7 @@ public class BackButtonMenu {
             if (chat == null && user == null) {
                 imageView.setRoundRadius(0);
             } else {
-                imageView.setRoundRadius(ExteraConfig.getAvatarCorners(chat != null && chat.forum ? 32 * 0.65f : 32));
+                imageView.setRoundRadius(BladeConfig.getAvatarCorners(chat != null && chat.forum ? 32 * 0.65f : 32));
             }
             cell.addView(imageView, LayoutHelper.createFrameRelatively(32, 32, Gravity.START | Gravity.CENTER_VERTICAL, 13, 0, 0, 0));
 

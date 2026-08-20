@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.preferences.components;
+package com.bladegram.messenger.preferences.components;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -35,7 +35,7 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
@@ -98,7 +98,7 @@ public class DoubleTapCell extends LinearLayout {
         outlinePaint.setColor(ColorUtils.setAlphaComponent(Theme.getColor(Theme.key_switchTrack), 0x3F));
         outlinePaint.setStrokeWidth(Math.max(2, AndroidUtilities.dp(1f)));
 
-        doubleTapIcons[1] = ExteraConfig.useSolarIcons ? R.drawable.msg_reactions : R.drawable.msg_saved_14;
+        doubleTapIcons[1] = BladeConfig.useSolarIcons ? R.drawable.msg_reactions : R.drawable.msg_saved_14;
 
         preview = new FrameLayout(context) {
             @SuppressLint("DrawAllocation")
@@ -203,7 +203,7 @@ public class DoubleTapCell extends LinearLayout {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         super.onAnimationEnd(animation);
-                        actionIcon[finalI] = finalI == 0 ? doubleTapIcons[ExteraConfig.doubleTapAction] : doubleTapIcons[ExteraConfig.doubleTapActionOutOwner];
+                        actionIcon[finalI] = finalI == 0 ? doubleTapIcons[BladeConfig.doubleTapAction] : doubleTapIcons[BladeConfig.doubleTapActionOutOwner];
                         animator[finalI].setFloatValues(0f, 1f);
                         animator[finalI].removeAllListeners();
                         animator[finalI].addListener(new AnimatorListenerAdapter() {
@@ -221,7 +221,7 @@ public class DoubleTapCell extends LinearLayout {
                 circleSizeProgress[i] = 0f;
                 circleProgress[i] = 0f;
                 iconChangingProgress[i] = 1f;
-                actionIcon[i] = i == 0 ? doubleTapIcons[ExteraConfig.doubleTapAction] : doubleTapIcons[ExteraConfig.doubleTapActionOutOwner];
+                actionIcon[i] = i == 0 ? doubleTapIcons[BladeConfig.doubleTapAction] : doubleTapIcons[BladeConfig.doubleTapActionOutOwner];
                 invalidate();
             }
         }
@@ -236,7 +236,7 @@ public class DoubleTapCell extends LinearLayout {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (!ExteraConfig.disableDividers)
+        if (!BladeConfig.disableDividers)
             canvas.drawLine(LocaleController.isRTL ? 0 : AndroidUtilities.dp(21), getMeasuredHeight() - 1, getMeasuredWidth() - (LocaleController.isRTL ? AndroidUtilities.dp(21) : 0), getMeasuredHeight() - 1, Theme.dividerPaint);
     }
 

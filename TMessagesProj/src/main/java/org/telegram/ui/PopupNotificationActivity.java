@@ -81,7 +81,7 @@ import org.telegram.ui.Components.TypingDotsDrawable;
 import java.io.File;
 import java.util.ArrayList;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class PopupNotificationActivity extends Activity implements NotificationCenter.NotificationCenterDelegate {
 
@@ -470,7 +470,7 @@ public class PopupNotificationActivity extends Activity implements NotificationC
         avatarContainer.setLayoutParams(layoutParams2);
 
         avatarImageView = new BackupImageView(this);
-        avatarImageView.setRoundRadius(ExteraConfig.getAvatarCorners(42));
+        avatarImageView.setRoundRadius(BladeConfig.getAvatarCorners(42));
         avatarContainer.addView(avatarImageView);
         layoutParams2 = (FrameLayout.LayoutParams) avatarImageView.getLayoutParams();
         layoutParams2.width = AndroidUtilities.dp(42);

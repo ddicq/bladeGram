@@ -1,4 +1,4 @@
-package com.exteragram.messenger.camera;
+package com.bladegram.messenger.camera;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -47,7 +47,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import org.telegram.messenger.AndroidUtilities;
@@ -323,7 +323,7 @@ public class CameraXController {
         vCapture = VideoCapture.withOutput(recorder);
 
         ImageCapture.Builder iCaptureBuilder = new ImageCapture.Builder()
-                .setCaptureMode(ExteraConfig.useCameraXOptimizedMode ? ImageCapture.CAPTURE_MODE_ZERO_SHUTTER_LAG : ImageCapture.CAPTURE_MODE_MAXIMIZE_QUALITY)
+                .setCaptureMode(BladeConfig.useCameraXOptimizedMode ? ImageCapture.CAPTURE_MODE_ZERO_SHUTTER_LAG : ImageCapture.CAPTURE_MODE_MAXIMIZE_QUALITY)
                 .setTargetAspectRatio(AspectRatio.RATIO_16_9);
 
         provider.unbindAll();

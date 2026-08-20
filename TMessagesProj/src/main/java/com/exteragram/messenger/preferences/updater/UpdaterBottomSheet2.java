@@ -1,4 +1,4 @@
-package com.exteragram.messenger.preferences.updater;
+package com.bladegram.messenger.preferences.updater;
 
 import static org.telegram.messenger.AndroidUtilities.dp;
 
@@ -21,10 +21,10 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.utils.LocaleUtils;
-import com.exteragram.messenger.utils.TranslatorUtils;
-import com.exteragram.messenger.utils.UpdaterUtils;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.utils.LocaleUtils;
+import com.bladegram.messenger.utils.TranslatorUtils;
+import com.bladegram.messenger.utils.UpdaterUtils;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.BuildVars;
@@ -218,7 +218,7 @@ public class UpdaterBottomSheet2 extends BottomSheet {
                 if (position == versionRow || position == buildTypeRow || position == sizeRow) {
                     copyText(cell.getTextView().getText() + ": " + cell.getValueTextView().getText());
                 } else if (position == checkOnLaunchRow) {
-                    ExteraConfig.editor.putBoolean("checkUpdatesOnLaunch", ExteraConfig.checkUpdatesOnLaunch ^= true).apply();
+                    BladeConfig.editor.putBoolean("checkUpdatesOnLaunch", BladeConfig.checkUpdatesOnLaunch ^= true).apply();
                     cell.setChecked(!cell.getCheckBox().isChecked());
                 } else if (position == clearCacheRow) {
                     if (UpdaterUtils.getOtaDirSize().replaceAll("\\D+", "").equals("0")) {
@@ -247,7 +247,7 @@ public class UpdaterBottomSheet2 extends BottomSheet {
             @Override
             protected void onDraw(Canvas canvas) {
                 super.onDraw(canvas);
-                if (!ExteraConfig.disableDividers)
+                if (!BladeConfig.disableDividers)
                     canvas.drawLine(0, getMeasuredHeight() - 1, getMeasuredWidth(), getMeasuredHeight() - 1, Theme.dividerPaint);
             }
         };
@@ -269,7 +269,7 @@ public class UpdaterBottomSheet2 extends BottomSheet {
         checkUpdates.setOnClickListener(v -> {
             checkUpdates.setText(LocaleController.getString("CheckingForUpdates", R.string.CheckingForUpdates));
             UpdaterUtils.checkUpdates(fragment, true, () -> {
-                headerCell.getTimeView().setText(LocaleController.getString("LastCheck", R.string.LastCheck) + ": " + LocaleController.formatDateTime(ExteraConfig.lastUpdateCheckTime / 1000));
+                headerCell.getTimeView().setText(LocaleController.getString("LastCheck", R.string.LastCheck) + ": " + LocaleController.formatDateTime(BladeConfig.lastUpdateCheckTime / 1000));
                 checkUpdates.setText(LocaleController.getString("CheckForUpdates", R.string.CheckForUpdates));
                 BulletinFactory.of(getContainer(), null).createErrorBulletin(LocaleController.getString("NoUpdates", R.string.NoUpdates)).show();
             }, this::dismiss);
@@ -361,7 +361,7 @@ public class UpdaterBottomSheet2 extends BottomSheet {
                     } else if (position == buildTypeRow) {
                         cell.setTextAndValueAndIcon(LocaleController.getString("BuildType", R.string.BuildType), BuildVars.isBetaApp() ? LocaleController.getString("BTBeta", R.string.BTBeta) : LocaleController.getString("BTRelease", R.string.BTRelease), R.drawable.msg_customize, true);
                     } else if (position == checkOnLaunchRow) {
-                        cell.setTextAndCheckAndIcon(LocaleController.getString("CheckOnLaunch", R.string.CheckOnLaunch), ExteraConfig.checkUpdatesOnLaunch, R.drawable.msg_recent, true);
+                        cell.setTextAndCheckAndIcon(LocaleController.getString("CheckOnLaunch", R.string.CheckOnLaunch), BladeConfig.checkUpdatesOnLaunch, R.drawable.msg_recent, true);
                     } else if (position == clearCacheRow) {
                         cell.setTextAndIcon(LocaleController.getString("ClearUpdatesCache", R.string.ClearUpdatesCache), R.drawable.msg_clear, false);
                     } else if (position == sizeRow) {
@@ -422,7 +422,7 @@ public class UpdaterBottomSheet2 extends BottomSheet {
             timeView.setTextSize(AndroidUtilities.dp(13));
             timeView.setTypeface(AndroidUtilities.getTypeface(AndroidUtilities.TYPEFACE_ROBOTO_REGULAR));
             timeView.setGravity(Gravity.LEFT | Gravity.CENTER_VERTICAL);
-            timeView.setText(available ? args[4] : LocaleController.getString("LastCheck", R.string.LastCheck) + ": " + LocaleController.formatDateTime(ExteraConfig.lastUpdateCheckTime / 1000));
+            timeView.setText(available ? args[4] : LocaleController.getString("LastCheck", R.string.LastCheck) + ": " + LocaleController.formatDateTime(BladeConfig.lastUpdateCheckTime / 1000));
             frame.addView(timeView, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 20, Gravity.LEFT, available ? 75 : 0, 35, 0, 0));
 
             addView(frame, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, LayoutHelper.MATCH_PARENT, 0, 21, 10, 0, 10));

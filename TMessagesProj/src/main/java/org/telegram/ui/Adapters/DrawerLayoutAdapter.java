@@ -14,9 +14,9 @@ import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.exteragram.messenger.ExteraConfig;
-import com.exteragram.messenger.utils.ChatUtils;
-import com.exteragram.messenger.utils.SystemUtils;
+import com.bladegram.messenger.BladeConfig;
+import com.bladegram.messenger.utils.ChatUtils;
+import com.bladegram.messenger.utils.SystemUtils;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
@@ -308,7 +308,7 @@ public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
             peopleNearbyIcon = R.drawable.msg_nearby;
         }
         UserConfig me = UserConfig.getInstance(UserConfig.selectedAccount);
-        if (me != null && me.isPremium() && ExteraConfig.changeStatus) {
+        if (me != null && me.isPremium() && BladeConfig.changeStatus) {
             if (me.getEmojiStatus() != null) {
                 items.add(new Item(15, LocaleController.getString("ChangeEmojiStatus", R.string.ChangeEmojiStatus), R.drawable.msg_status_edit));
             } else {
@@ -316,19 +316,19 @@ public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
             }
             items.add(null);
         }
-        if (ExteraConfig.archivedChats && ChatUtils.hasArchivedChats()) {
+        if (BladeConfig.archivedChats && ChatUtils.hasArchivedChats()) {
             items.add(new Item(14, LocaleController.getString("ArchivedChats", R.string.ArchivedChats), archiveIcon));
             items.add(null);
         }
-        if (ExteraConfig.newGroup) items.add(new Item(2, LocaleController.getString("NewGroup", R.string.NewGroup), newGroupIcon));
-        if (ExteraConfig.newSecretChat) items.add(new Item(3, LocaleController.getString("NewSecretChat", R.string.NewSecretChat), newSecretIcon));
-        if (ExteraConfig.newChannel) items.add(new Item(4, LocaleController.getString("NewChannel", R.string.NewChannel), newChannelIcon));
-        if (ExteraConfig.contacts) items.add(new Item(6, LocaleController.getString("Contacts", R.string.Contacts), contactsIcon));
-        if (ExteraConfig.calls) items.add(new Item(10, LocaleController.getString("Calls", R.string.Calls), callsIcon));
-        if (ExteraConfig.peopleNearby && hasGps) items.add(new Item(12, LocaleController.getString("PeopleNearby", R.string.PeopleNearby), peopleNearbyIcon));
-        if (ExteraConfig.savedMessages) items.add(new Item(11, LocaleController.getString("SavedMessages", R.string.SavedMessages), savedIcon));
+        if (BladeConfig.newGroup) items.add(new Item(2, LocaleController.getString("NewGroup", R.string.NewGroup), newGroupIcon));
+        if (BladeConfig.newSecretChat) items.add(new Item(3, LocaleController.getString("NewSecretChat", R.string.NewSecretChat), newSecretIcon));
+        if (BladeConfig.newChannel) items.add(new Item(4, LocaleController.getString("NewChannel", R.string.NewChannel), newChannelIcon));
+        if (BladeConfig.contacts) items.add(new Item(6, LocaleController.getString("Contacts", R.string.Contacts), contactsIcon));
+        if (BladeConfig.calls) items.add(new Item(10, LocaleController.getString("Calls", R.string.Calls), callsIcon));
+        if (BladeConfig.peopleNearby && hasGps) items.add(new Item(12, LocaleController.getString("PeopleNearby", R.string.PeopleNearby), peopleNearbyIcon));
+        if (BladeConfig.savedMessages) items.add(new Item(11, LocaleController.getString("SavedMessages", R.string.SavedMessages), savedIcon));
         items.add(new Item(8, LocaleController.getString("Settings", R.string.Settings), settingsIcon));
-        if (ExteraConfig.scanQr) {
+        if (BladeConfig.scanQr) {
             items.add(null);
             items.add(new Item(16, LocaleController.getString("AuthAnotherClient", R.string.AuthAnotherClient), scanQrIcon));
         }

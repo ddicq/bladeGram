@@ -1,6 +1,6 @@
 /*
 
- This is the source code of exteraGram for Android.
+ This is the source code of bladeGram for Android.
 
  We do not and cannot prevent the use of our code,
  but be respectful and credit the original author.
@@ -9,7 +9,7 @@
 
 */
 
-package com.exteragram.messenger.preferences.components;
+package com.bladegram.messenger.preferences.components;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -35,7 +35,7 @@ import android.widget.LinearLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.LocaleController;
@@ -56,7 +56,7 @@ public class CameraTypeSelector extends LinearLayout {
             R.drawable.camerax_icon,
             R.drawable.android_camera_icon
     };
-    int currentIcon = ExteraConfig.cameraType;
+    int currentIcon = BladeConfig.cameraType;
     private final NumberPicker numberPicker;
     private final FrameLayout preview;
 
@@ -167,7 +167,7 @@ public class CameraTypeSelector extends LinearLayout {
             updateIcon(true);
             picker.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP, HapticFeedbackConstants.FLAG_IGNORE_GLOBAL_SETTING);
         });
-        int selectedButton = ExteraConfig.cameraType;
+        int selectedButton = BladeConfig.cameraType;
         numberPicker.setValue(selectedButton);
         addView(numberPicker, LayoutHelper.createFrame(132, 102, Gravity.RIGHT, 0, 33, 21, 33));
         updateIcon(false);
@@ -188,7 +188,7 @@ public class CameraTypeSelector extends LinearLayout {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     super.onAnimationEnd(animation);
-                    currentIcon = ExteraConfig.cameraType;
+                    currentIcon = BladeConfig.cameraType;
                     animator.setFloatValues(0f, 1f);
                     animator.removeAllListeners();
                     animator.start();
@@ -208,7 +208,7 @@ public class CameraTypeSelector extends LinearLayout {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        if (!ExteraConfig.disableDividers && numberPicker.getValue() == 1)
+        if (!BladeConfig.disableDividers && numberPicker.getValue() == 1)
             canvas.drawLine(LocaleController.isRTL ? 0 : AndroidUtilities.dp(21), getMeasuredHeight() - 1, getMeasuredWidth() - (LocaleController.isRTL ? AndroidUtilities.dp(21) : 0), getMeasuredHeight() - 1, Theme.dividerPaint);
     }
 }

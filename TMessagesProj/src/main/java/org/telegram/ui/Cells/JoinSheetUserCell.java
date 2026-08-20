@@ -25,7 +25,7 @@ import org.telegram.ui.Components.AvatarDrawable;
 import org.telegram.ui.Components.BackupImageView;
 import org.telegram.ui.Components.LayoutHelper;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class JoinSheetUserCell extends FrameLayout {
 
@@ -38,7 +38,7 @@ public class JoinSheetUserCell extends FrameLayout {
         super(context);
 
         imageView = new BackupImageView(context);
-        imageView.setRoundRadius(ExteraConfig.getAvatarCorners(54));
+        imageView.setRoundRadius(BladeConfig.getAvatarCorners(54));
         addView(imageView, LayoutHelper.createFrame(54, 54, Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 7, 0, 0));
 
         nameTextView = new TextView(context);

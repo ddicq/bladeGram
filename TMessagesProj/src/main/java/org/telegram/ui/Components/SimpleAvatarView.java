@@ -17,7 +17,7 @@ import org.telegram.messenger.ImageReceiver;
 import org.telegram.tgnet.TLObject;
 import org.telegram.ui.ActionBar.Theme;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 public class SimpleAvatarView extends View {
     public final static int SELECT_ANIMATION_DURATION = 250;
@@ -42,7 +42,7 @@ public class SimpleAvatarView extends View {
     }
 
     {
-        avatarImage.setRoundRadius(ExteraConfig.getAvatarCorners(56));
+        avatarImage.setRoundRadius(BladeConfig.getAvatarCorners(56));
         selectPaint.setStrokeWidth(AndroidUtilities.dp(2));
         selectPaint.setStyle(Paint.Style.STROKE);
     }
@@ -72,8 +72,8 @@ public class SimpleAvatarView extends View {
         selectPaint.setAlpha((int) (Color.alpha(selectPaint.getColor()) * selectProgress));
         float stroke = selectPaint.getStrokeWidth();
         AndroidUtilities.rectTmp.set(stroke, stroke, getWidth() - stroke, getHeight() - stroke);
-        if (ExteraConfig.avatarCorners != 30) {
-            canvas.drawRoundRect(AndroidUtilities.rectTmp, ExteraConfig.getAvatarCorners(getWidth() - stroke * 2, true), ExteraConfig.getAvatarCorners(getWidth() - stroke * 2, true), selectPaint);
+        if (BladeConfig.avatarCorners != 30) {
+            canvas.drawRoundRect(AndroidUtilities.rectTmp, BladeConfig.getAvatarCorners(getWidth() - stroke * 2, true), BladeConfig.getAvatarCorners(getWidth() - stroke * 2, true), selectPaint);
         } else {
             canvas.drawArc(AndroidUtilities.rectTmp, -90, selectProgress * 360, false, selectPaint);
         }
@@ -81,7 +81,7 @@ public class SimpleAvatarView extends View {
 
         if (!isAvatarHidden) {
             float pad = selectPaint.getStrokeWidth() * 2.5f * selectProgress;
-            avatarImage.setRoundRadius(ExteraConfig.getAvatarCorners(getWidth() - pad * 2, true));
+            avatarImage.setRoundRadius(BladeConfig.getAvatarCorners(getWidth() - pad * 2, true));
             avatarImage.setImageCoords(pad, pad, getWidth() - pad * 2, getHeight() - pad * 2);
             avatarImage.draw(canvas);
         }

@@ -26,7 +26,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.util.Consumer;
 import androidx.core.util.Preconditions;
 
-import com.exteragram.messenger.ExteraConfig;
+import com.bladegram.messenger.BladeConfig;
 
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.FileLoader;
@@ -371,7 +371,7 @@ public class AvatarPreviewer {
             setFitsSystemWindows(true);
             imageReceiver.setAspectFit(true);
             imageReceiver.setInvalidateAll(true);
-            imageReceiver.setRoundRadius(ExteraConfig.getAvatarCorners(42));
+            imageReceiver.setRoundRadius(BladeConfig.getAvatarCorners(42));
             imageReceiver.setParentView(this);
             radialProgress = new RadialProgress2(this);
             radialProgress.setOverrideAlpha(0.0f);

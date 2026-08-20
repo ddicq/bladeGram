@@ -69,7 +69,7 @@ android {
     ndkVersion "21.4.7075529"
     namespace 'org.telegram.bladegram'
 
-    defaultConfig.applicationId = APP_PACKAGE
+    defaultConfig.applicationId = "org.telegram.bladegram"
     defaultConfig.versionCode = Integer.parseInt(APP_VERSION_CODE)
 
     Properties localProperties = new Properties()

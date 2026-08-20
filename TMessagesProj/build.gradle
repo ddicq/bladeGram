@@ -70,7 +70,7 @@ android {
     namespace 'org.telegram.bladegram'
 
     defaultConfig.applicationId = "org.telegram.bladegram"
-    defaultConfig.versionCode = Integer.parseInt(APP_VERSION_CODE)
+    defaultConfig.versionCode = 1
 
     Properties localProperties = new Properties()
     if (project.rootProject.file('API_KEYS').exists()) {

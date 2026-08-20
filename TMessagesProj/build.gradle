@@ -82,13 +82,12 @@ android {
         targetSdkVersion 33
         defaultConfig.versionName = "1.0"
 
-        // Obtain your own keys at: https://core.telegram.org/api/obtaining_api_id
+               // Obtain your own keys at: https://core.telegram.org/api/obtaining_api_id
         buildConfigField "String", "APP_ID", "\"32414245\""
         buildConfigField "String", "APP_HASH", "\"e09599d66989be740deb40c5b11b6f9f\""
 
         // Google Console: https://console.cloud.google.com/google/maps-apis/credentials
-        resValue 'string', 'MAPS_V2_API', localProperties.getProperty("MAPS_V2_API")
-
+        resValue 'string', 'MAPS_V2_API', '""'
         externalNativeBuild {
             cmake {
                 version '3.10.2'
